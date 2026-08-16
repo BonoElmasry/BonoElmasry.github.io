@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شيلد | درعك الرقمي | BonoApp</title>
+
+    <!-- تحسين محركات البحث SEO -->
+    <meta name="description" content="تطبيق شيلد هو درعك الرقمي لفحص الروابط المشبوهة وحماية جهازك من الفيروسات والتصيد الإلكتروني باستخدام Google Safe Browsing.">
+    <meta name="keywords" content="فحص الروابط, درع رقمي, أمان الإنترنت, تصيد, فيروسات, شيلد, محمود حسين, بونو المصري">
+    <meta name="author" content="محمود حسين">
+
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- ملف التصميم الأساسي (الخاص بك) -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* ==========================================================
+           إضافات تنسيقية جديدة لتكملة النواقص في ملف style.css الخاص بك
+           (هذه التنسيقات مخصصة للأقسام الجديدة فقط)
+           ========================================================== */
+
+        /* 1. تنسيق اللوجو (عشان متظهرش كبير) */
+        .logo-icon img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid var(--primary-color);
+            box-shadow: 0 0 15px rgba(0, 212, 255, 0.3);
+        }
+
+        /* 2. زر الهامبرغر (المكون من 3 خطوط) */
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            padding: 5px;
+            background: none;
+            border: none;
+        }
+        .hamburger span {
+            display: block;
+            width: 28px;
+            height: 3px;
+            background: var(--text-light);
+            border-radius: 3px;
+            transition: var(--transition-normal);
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(6px, 6px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(6px, -6px); }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                right: 0;
+                left: 0;
+                background: rgba(10, 14, 39, 0.95);
+                backdrop-filter: blur(20px);
+                padding: 2rem;
+                gap: 1.5rem;
+                box-shadow: var(--shadow-lg);
+            }
+            .nav-menu.active { display: flex; }
+        }
+
+        /* 3. تنسيقات قسم "كيف يعمل" (Steps) */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        .step-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2rem 1.5rem;
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+        .step-card:hover { transform: translateY(-8px); border-color: var(--primary-color); }
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-alt));
+            color: var(--bg-dark);
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .step-card h3 { font-size: 1.3rem; margin-bottom: 0.5rem; }
+        .step-card p { color: var(--text-muted); line-height: 1.7; }
+
+        /* 4. تنسيقات قسم "لقطات الشاشة" */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .screenshot-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+            transition: var(--transition-normal);
+        }
+        .screenshot-item:hover { transform: scale(1.03); border-color: var(--primary-color); }
+        .screenshot-image {
+            width: 100%;
+            height: 350px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-darker);
+        }
+
+        /* 5. تنسيقات قسم "الأسئلة الشائعة" (FAQ) */
+        .faq-list {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: var(--transition-normal);
+        }
+        .faq-item:hover { background: rgba(255, 255, 255, 0.05); }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.4s ease, padding 0.3s ease;
+            color: var(--text-muted);
+            line-height: 1.7;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 300px;
+            padding-top: 1rem;
+        }
+
+        /* 6. تنسيقات قسم "المطور" */
+        .developer-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        .developer-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        .developer-card h3 { font-size: 1.5rem; }
+        .developer-card p { color: var(--text-muted); margin: 0.5rem 0 1.5rem; }
+
+        /* 7. تعديل على زر التحميل عشان يبقى في صف */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            cursor: pointer;
+            border: 2px solid transparent;
+            transition: var(--transition-normal);
+        }
+        .btn-primary {
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-alt));
+            color: var(--bg-dark);
+            border-color: var(--primary-color);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+        }
+        .btn-primary:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.4);
+        }
+        .btn-secondary {
+            background: transparent;
+            color: var(--text-light);
+            border-color: var(--text-muted);
+        }
+        .btn-secondary:hover {
+            border-color: var(--secondary-color);
+            color: var(--secondary-color);
+        }
+        .cta-buttons {
+            display: flex;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        /* 8. تعديل شاشة الهيرو لتبقى منسقة */
+        .hero-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        .hero-description {
+            max-width: 700px;
+            margin: 1.5rem auto;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+        .main-title span {
+            color: var(--primary-color);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ===== الخلفية والكرات العائمة ===== -->
+    <div class="animated-bg"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- ===== شريط التنقل (مع زر الهامبرغر) ===== -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">
+                    <img src="images/sheld.png" alt="لوجو شيلد">
+                </span>
+                <span class="logo-text">شيـ<span class="highlight">ـلد</span></span>
+            </div>
+
+            <!-- زر الهامبرغر (تم إضافته عشان الـ JS يشتغل) -->
+            <button class="hamburger" aria-label="القائمة" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <ul class="nav-menu">
+                <li><a href="#features" class="nav-link">المميزات</a></li>
+                <li><a href="#how-it-works" class="nav-link">كيف يعمل</a></li>
+                <li><a href="#screenshots" class="nav-link">لقطات الشاشة</a></li>
+                <li><a href="#faq" class="nav-link">الأسئلة الشائعة</a></li>
+                <li><a href="#developer" class="nav-link">المطور</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- ===== القسم الرئيسي (Hero) ===== -->
+    <header class="hero" id="home">
+        <div class="container">
+            <div class="hero-wrapper">
+                <div class="hero-content">
+                    <!-- أنيميشن الدرع الرادار (موجود في الـ CSS بتاعك بالفعل) -->
+                    <div class="shield-scanner">
+                        <i class="fas fa-shield-alt" style="font-size: 2.5rem; color: var(--primary-color);"></i>
+                    </div>
+
+                    <h1 class="main-title">
+                        عالمك الرقمي، <span>أكثر أمانًا</span>
+                    </h1>
+
+                    <p class="hero-description">
+                        درعك الرقمي لفحص الروابط المشبوهة. احمِ بياناتك وجهازك من الاحتيال والفيروسات بضغطة زر واحدة باستخدام تقنيات Google Safe Browsing.
+                    </p>
+
+                    <!-- الأزرار -->
+                    <div class="cta-buttons">
+                        <a href="حط_لينك_الاندرويد_هنا" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #2ecc71, #27ae60); border-color: #2ecc71; box-shadow: 0 0 30px rgba(46, 204, 113, 0.3);">
+                            <span class="btn-text">تحميل للأندرويد</span>
+                            <span class="btn-icon"><i class="fab fa-android"></i></span>
+                        </a>
+                        <div class="btn btn-secondary" style="cursor: not-allowed; opacity: 0.6;">
+                            <span class="btn-text">قريباً للآيفون</span>
+                            <span class="btn-icon"><i class="fab fa-apple"></i></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- ===== قسم المميزات ===== -->
+    <section class="skills-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لماذا تختار شيلد؟</h2>
+                <p class="section-subtitle">أداة بسيطة وقوية لحمايتك من مخاطر الإنترنت</p>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: var(--primary-color);"><i class="fas fa-search"></i></div>
+                    <h3>فحص فوري للروابط</h3>
+                    <p>الصق أي رابط مشبوه واضغط فحص. التطبيق يتواصل مع قواعد بيانات جوجل العملاقة ليعطيك النتيجة في ثوانٍ.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: var(--secondary-color);"><i class="fas fa-bug"></i></div>
+                    <h3>حماية من التصيد</h3>
+                    <p>يكتشف صفحات التصيد (Phishing) والبرامج الضارة قبل أن تفتحها، ليحمي حساباتك البنكية وبياناتك الشخصية.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: var(--accent-color);"><i class="fas fa-language"></i></div>
+                    <h3>دعم ثنائي اللغة</h3>
+                    <p>واجهة مستخدم مرنة تدعم اللغتين العربية والإنجليزية بالكامل، مع حفظ تفضيلاتك تلقائياً.</p>
+                </div>
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: var(--primary-alt);"><i class="fas fa-mobile-alt"></i></div>
+                    <h3>واجهة بسيطة وسلسة</h3>
+                    <p>تصميم عصري باستخدام Jetpack Compose، يركز على سهولة الاستخدام بدون تعقيدات أو إعلانات مزعجة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== قسم "كيف يعمل" ===== -->
+    <section class="skills-section" id="how-it-works" style="background: rgba(255, 0, 110, 0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">فحص الرابط في ٣ خطوات</h2>
+                <p class="section-subtitle">بسيط وسريع، لا يحتاج لأي خبرة تقنية</p>
+            </div>
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">١</div>
+                    <h3>انسخ الرابط</h3>
+                    <p>انسخ الرابط الذي تشك فيه من أي تطبيق (واتساب، فيسبوك، أو رسائل نصية).</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">٢</div>
+                    <h3>الصقه في التطبيق</h3>
+                    <p>افتح "شيلد" والصق الرابط في حقل الإدخال، ثم اضغط على زر "فحص الرابط".</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">٣</div>
+                    <h3>احصل على النتيجة</h3>
+                    <p>في ثوانٍ، ستظهر لك النتيجة: ✅ آمن أو ⚠️ خطر مع سبب التهديد.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+        <!-- ===== قسم لقطات الشاشة ===== -->
+    <section class="skills-section" id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لقطات من التطبيق</h2>
+                <p class="section-subtitle">تصميم بسيط وأنيق يسهل عليك كل شيء</p>
+            </div>
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <img src="images/sheld1.jpeg" alt="شاشة الفحص" class="screenshot-image">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/sheld2.jpeg" alt="نتيجة آمن" class="screenshot-image">
+                </div>
+                <div class="screenshot-item">
+                    <img src="images/sheld3.jpeg" alt="نتيجة خطر" class="screenshot-image">
+                </div>
+            </div>
+            <p style="text-align:center; color: var(--text-muted); margin-top: 1.5rem; font-size:0.9rem;">
+                <i class="fas fa-info-circle"></i> لقطات حقيقية من تطبيق شيلد.
+            </p>
+        </div>
+    </section>
+
+    <!-- ===== قسم الأسئلة الشائعة ===== -->
+    <section class="skills-section" id="faq" style="background: rgba(0, 212, 255, 0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الأسئلة الشائعة</h2>
+                <p class="section-subtitle">كل ما تريد معرفته عن درعك الرقمي</p>
+            </div>
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        هل التطبيق مجاني؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">نعم، تطبيق "شيلد" مجاني بالكامل ولا يحتوي على أي إعلانات مزعجة.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        كيف يعمل التطبيق؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">يتواصل التطبيق مع Google Safe Browsing API لفحص الرابط بقاعدة بيانات جوجل للتهديدات العالمية.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل يطلب التطبيق أذونات خطيرة؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">لا، التطبيق يطلب فقط إذن الإنترنت لإجراء الفحص، ولا يقرأ أي بيانات شخصية على هاتفك.</div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        ماذا أفعل إذا أظهر التطبيق أن الرابط ضار؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">لا تفتح الرابط نهائياً، واحذف الرسالة التي تحتوي عليه. التطبيق يحميك قبل أن تخطو الخطوة الخطيرة.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== قسم المطور ===== -->
+    <section class="skills-section" id="developer" style="background: rgba(255, 0, 110, 0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">المطور</h2>
+                <p class="section-subtitle">خلف هذا المشروع الأمني</p>
+            </div>
+            <div class="developer-card">
+                <img src="images/mahmoud.jpg" alt="محمود حسين" onerror="this.style.display='none'">
+                <h3>محمود حسين (بونو المصري)</h3>
+                <p>مبرمج ومطور تطبيقات Android، مهتم بأمن المعلومات وتقديم تجارب رقمية آمنة للمستخدم العربي.</p>
+                <div class="social-links">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="#" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== الفوتر ===== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>شيلد</h3>
+                    <p>درعك الرقمي لحماية عالمك الرقمي.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#how-it-works">كيف يعمل</a></li>
+                        <li><a href="#faq">الأسئلة الشائعة</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعني</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 محمود حسين (بونو المصري). جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ===== ملف الجافا سكريبت الخاص بك ===== -->
+    <script src="script.js"></script>
+
+    <script>
+        // تفعيل خاصية النقر في الأسئلة الشائعة (FAQ Accordion)
+        document.querySelectorAll('.faq-item').forEach(function(item) {
+            item.addEventListener('click', function() {
+                this.classList.toggle('active');
+            });
+        });
+    </script>
+
+</body>
+</html>

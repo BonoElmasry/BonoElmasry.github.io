@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>زاد بونو | رفيقك اليومي في العبادات | BonoApp</title>
+    
+    <!-- تحسين محركات البحث SEO -->
+    <meta name="description" content="تطبيق زاد بونو - تطبيق عبادات إسلامية شامل يحتوي على القرآن الكريم، الأذان، الأذكار، القبلة، السبحة، مكتبة إسلامية، بث مباشر، وأكثر من 20 ميزة تفاعلية.">
+    <meta name="keywords" content="تطبيق إسلامي, قرآن, أذان, أذكار, قبلة, سبحة, مكتبة إسلامية, زاد بونو, محمود حسين">
+    <meta name="author" content="محمود حسين">
+    
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التصميم الأساسي -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ===== تنسيقات خاصة بصفحة زاد بونو (أخضر + ذهبي) ===== -->
+    <style>
+        /* ==========================================================
+           الألوان الخاصة بالتطبيق (أخضر إسلامي + ذهبي)
+           ========================================================== */
+        :root {
+            --zad-green: #10B981;
+            --zad-green-dark: #059669;
+            --zad-green-light: #34D399;
+            --zad-gold: #D4AF37;
+            --zad-gold-light: #FBBF24;
+            --zad-bg-dark: #0F172A;
+        }
+
+        /* تعديل لون الروابط واللمسات في هذه الصفحة */
+        .logo-text .highlight {
+            color: var(--zad-gold) !important;
+            -webkit-text-fill-color: var(--zad-gold) !important;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            background: var(--zad-green) !important;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--zad-green) !important;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, var(--zad-green), var(--zad-green-dark)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+        .section-title::after {
+            background: linear-gradient(90deg, var(--zad-green), var(--zad-green-dark)) !important;
+        }
+
+        /* ==========================================================
+           أنيميشن الهيرو (قبة مسجد متحركة)
+           ========================================================== */
+        .zad-hero-icon {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 3px solid rgba(16, 185, 129, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.08);
+            box-shadow: 0 0 50px rgba(16, 185, 129, 0.15);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        .zad-hero-icon::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--zad-gold);
+            border-right-color: var(--zad-green-light);
+            animation: spin-border 4s linear infinite;
+        }
+        @keyframes spin-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(16, 185, 129, 0.15); }
+            50% { box-shadow: 0 0 60px rgba(16, 185, 129, 0.3); }
+        }
+        .zad-hero-icon i {
+            font-size: 4rem;
+            color: var(--zad-gold);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* ==========================================================
+           تنسيقات بطاقات المميزات
+           ========================================================== */
+        .zad-features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .zad-feature-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+        .zad-feature-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--zad-gold);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.08);
+        }
+        .zad-feature-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        .zad-feature-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-light);
+        }
+        .zad-feature-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================
+           تنسيقات لقطات الشاشة
+           ========================================================== */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .screenshot-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            transition: var(--transition-normal);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .screenshot-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--zad-gold);
+            box-shadow: 0 15px 40px rgba(16, 185, 129, 0.1);
+        }
+        .screenshot-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-darker);
+        }
+        .screenshot-placeholder {
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(16, 185, 129, 0.03);
+            color: var(--text-muted);
+            gap: 1rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        .screenshot-placeholder i {
+            font-size: 3rem;
+            color: var(--zad-gold);
+            opacity: 0.5;
+        }
+
+        /* ==========================================================
+           تنسيقات الأسئلة الشائعة (FAQ) - الحل المضمون بـ <details>
+           ========================================================== */
+        .faq-list {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(16, 185, 129, 0.15);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: var(--transition-normal);
+        }
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .faq-item[open] {
+            border-color: var(--zad-gold);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .faq-item summary i {
+            transition: transform 0.3s;
+            color: var(--zad-gold);
+        }
+        .faq-item[open] summary i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding-top: 0;
+            color: var(--text-muted);
+            line-height: 1.7;
+            transition: padding 0.3s ease;
+        }
+        .faq-item[open] .faq-answer {
+            padding-top: 1rem;
+        }
+
+        /* ==========================================================
+           تنسيقات المطور (Developer)
+           ========================================================== */
+        .developer-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(16, 185, 129, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        .developer-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--zad-gold);
+            margin-bottom: 1rem;
+        }
+        .developer-card h3 {
+            font-size: 1.5rem;
+        }
+        .developer-card p {
+            color: var(--text-muted);
+            margin: 0.5rem 0 1.5rem;
+        }
+
+        /* ==========================================================
+           زر مخصص
+           ========================================================== */
+        .btn-zad {
+            background: linear-gradient(135deg, var(--zad-green), var(--zad-green-dark));
+            color: #fff;
+            border-color: var(--zad-green);
+            box-shadow: 0 0 30px rgba(16, 185, 129, 0.3);
+        }
+        .btn-zad:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(16, 185, 129, 0.4);
+        }
+
+        .btn-zad-gold {
+            background: linear-gradient(135deg, var(--zad-gold), var(--zad-gold-light));
+            color: #0F172A;
+            border-color: var(--zad-gold);
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.3);
+        }
+        .btn-zad-gold:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(212, 175, 55, 0.4);
+        }
+
+        /* تعديلات للهيرو */
+        .hero-description {
+            max-width: 700px;
+            margin: 1.5rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .screenshot-image {
+                height: 220px;
+            }
+            .screenshot-placeholder {
+                height: 220px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === ANIMATED BACKGROUND === -->
+    <div class="animated-bg"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- === NAVBAR === -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">
+                    <img src="images/zadbono.jpg" alt="لوجو زاد بونو" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #D4AF37; box-shadow: 0 0 10px rgba(212, 175, 55, 0.3);" onerror="this.style.display='none'; this.parentElement.innerHTML='🕌'">
+                </span>
+                <span class="logo-text">زاد <span class="highlight">بونو</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">🏠 الرئيسية</a></li>
+                <li><a href="#features" class="nav-link">المميزات</a></li>
+                <li><a href="#screenshots" class="nav-link">لقطات</a></li>
+                <li><a href="#faq" class="nav-link">الأسئلة</a></li>
+            </ul>
+            <div class="hamburger" aria-label="القائمة" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === HERO SECTION === -->
+    <header class="hero" id="home">
+        <div class="hero-wrapper" style="grid-template-columns: 1fr; text-align: center;">
+            <div class="hero-content">
+                
+                <!-- Hero Icon Animation -->
+                <div class="zad-hero-icon">
+                    <i class="fas fa-mosque"></i>
+                </div>
+
+                <h1 class="main-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+                    رفيقك اليومي <span style="color: #D4AF37;">في العبادات</span>
+                </h1>
+                
+                <p class="hero-description" style="max-width: 800px; margin: 1.5rem auto; font-size: 1.2rem;">
+                    <strong>زاد بونو</strong> هو تطبيق عبادات إسلامي شامل يحتوي على <strong>أكثر من 20 ميزة تفاعلية</strong>: القرآن الكريم، الأذان ومواقيت الصلاة، الأذكار، القبلة، السبحة الإلكترونية، مكتبة إسلامية ضخمة، بث مباشر للقنوات الدينية، وأكثر من ذلك بكثير.
+                </p>
+
+                <div style="background: rgba(16, 185, 129, 0.1); border-radius: var(--radius-full); padding: 0.75rem 1.5rem; display: inline-block; border: 1px solid rgba(16, 185, 129, 0.3); margin-bottom: 2rem;">
+                    <span style="color: #34D399;">📿 اجعل يومك كله ذكراً لله</span>
+                </div>
+
+                <!-- أزرار التحميل -->
+                <div class="cta-buttons" style="justify-content: center; gap: 1.5rem;">
+                    <a href="https://archive.org/download/zad-bono-v-2.2/Zad%20Bono%20V%202.2.apk" target="_blank" class="btn btn-zad-gold">
+                        <span class="btn-text"><i class="fab fa-android"></i> تحميل التطبيق للأندرويد</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-left"></i></span>
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <span class="btn-text">اكتشف المميزات</span>
+                        <span class="btn-icon">↓</span>
+                    </a>
+                </div>
+
+                <!-- ===== رابط الموقع الرسمي (إضافة جديدة) ===== -->
+<div style="text-align: center; margin-top: 1rem;">
+    <a href="https://zadbono.github.io/" target="_blank" style="color: var(--zad-gold); text-decoration: none; font-size: 0.95rem; transition: var(--transition-normal);" onmouseover="this.style.color='var(--zad-green)'" onmouseout="this.style.color='var(--zad-gold)'">
+        <i class="fas fa-external-link-alt"></i> الموقع الرسمي للتطبيق – تفاصيل أكثر وتقييمات المستخدمين
+    </a>
+</div>
+            </div>
+        </div>
+    </header>
+
+    <!-- === SECTION: المميزات الرئيسية === -->
+    <section class="skills-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">✨ مميزات زاد بونو</h2>
+                <p class="section-subtitle">أكثر من 20 ميزة تفاعلية في تطبيق واحد</p>
+            </div>
+
+            <div class="zad-features-grid">
+                <!-- الميزة 1: الأذان -->
+                <div class="zad-feature-card">
+                    <span class="icon">🕌</span>
+                    <h4>الأذان ومواقيت الصلاة</h4>
+                    <p>مواقيت دقيقة بناءً على موقعك، مع أذان كامل بصوت الشيخ مشاري العفاسي.</p>
+                </div>
+
+                <!-- الميزة 2: القرآن -->
+                <div class="zad-feature-card">
+                    <span class="icon">📖</span>
+                    <h4>القرآن الكريم</h4>
+                    <p>قراءة بدون إنترنت، استماع لأكثر من 11 قارئ، وتفسير ميسّر للآيات.</p>
+                </div>
+
+                <!-- الميزة 3: الأذكار -->
+                <div class="zad-feature-card">
+                    <span class="icon">📿</span>
+                    <h4>الأذكار وحصن المسلم</h4>
+                    <p>أذكار الصباح والمساء، أذكار النوم، وأدعية متنوعة من الكتاب والسنة.</p>
+                </div>
+
+                <!-- الميزة 4: القبلة -->
+                <div class="zad-feature-card">
+                    <span class="icon">🧭</span>
+                    <h4>تحديد اتجاه القبلة</h4>
+                    <p>بوصلة ذكية لتحديد القبلة بدقة عالية باستخدام مستشعرات جهازك.</p>
+                </div>
+
+                <!-- الميزة 5: السبحة -->
+                <div class="zad-feature-card">
+                    <span class="icon">📿</span>
+                    <h4>السبحة الإلكترونية</h4>
+                    <p>عداد تسبيح بتصميم جذاب، مع أهداف تسبيح وتنبيهات ذكية.</p>
+                </div>
+
+                <!-- الميزة 6: المكتبة -->
+                <div class="zad-feature-card">
+                    <span class="icon">📚</span>
+                    <h4>المكتبة الإسلامية</h4>
+                    <p>عشرات الكتب في التفسير، الحديث، الفقه، السيرة، والعقيدة بصيغة PDF.</p>
+                </div>
+
+                <!-- الميزة 7: البث المباشر -->
+                <div class="zad-feature-card">
+                    <span class="icon">📺</span>
+                    <h4>البث المباشر</h4>
+                    <p>قنوات دينية، محطات إذاعية، وقنوات إخبارية مباشرة.</p>
+                </div>
+
+                <!-- الميزة 8: متتبع الختمة -->
+                <div class="zad-feature-card">
+                    <span class="icon">📊</span>
+                    <h4>متتبع الختمة</h4>
+                    <p>ختمة فردية أو جماعية مع الأصدقاء، ونظام حجز الأجزاء.</p>
+                </div>
+
+                <!-- الميزة 9: الرقية الشرعية -->
+                <div class="zad-feature-card">
+                    <span class="icon">🤲</span>
+                    <h4>الرقية الشرعية</h4>
+                    <p>آيات الرقية الشرعية من القرآن والسنة، مع آيات إبطال السحر.</p>
+                </div>
+
+                <!-- الميزة 10: زاد التعليمي -->
+                <div class="zad-feature-card">
+                    <span class="icon">🎓</span>
+                    <h4>زاد التعليمي</h4>
+                    <p>تعلم الوضوء، التيمم، الصلاة، والحج والعمرة بالصور والشرح.</p>
+                </div>
+
+                <!-- الميزة 11: قصص الأنبياء -->
+                <div class="zad-feature-card">
+                    <span class="icon">📜</span>
+                    <h4>قصص الأنبياء</h4>
+                    <p>موسوعة شاملة لسير الأنبياء والمرسلين من بداية الخلق.</p>
+                </div>
+
+                <!-- الميزة 12: أسماء الله الحسنى -->
+                <div class="zad-feature-card">
+                    <span class="icon">🌟</span>
+                    <h4>أسماء الله الحسنى</h4>
+                    <p>99 اسماً مع شرح معنى كل اسم وتدبر في عظمة الله.</p>
+                </div>
+
+                <!-- الميزة 13: فتاوى وأحكام -->
+                <div class="zad-feature-card">
+                    <span class="icon">📝</span>
+                    <h4>فتاوى وأحكام</h4>
+                    <p>مرجع موثوق للإجابة على الاستفسارات الفقهية والحياتية.</p>
+                </div>
+
+                <!-- الميزة 14: التقويم -->
+                <div class="zad-feature-card">
+                    <span class="icon">📅</span>
+                    <h4>التقويم الهجري والميلادي</h4>
+                    <p>عرض متكامل للتقويمين مع المناسبات والأيام المستحبة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: لقطات الشاشة === -->
+    <section class="skills-section" id="screenshots" style="background: rgba(16, 185, 129, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📸 لقطات من التطبيق</h2>
+                <p class="section-subtitle">تصميم عصري وتجربة مستخدم مريحة</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-mosque"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">شاشة الرئيسية</p>
+                        <span style="font-size: 0.8rem; opacity: 0.5;">(صورة قريباً)</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-quran"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">شاشة القرآن الكريم</p>
+                        <span style="font-size: 0.8rem; opacity: 0.5;">(صورة قريباً)</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-kaaba"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">شاشة القبلة والأذكار</p>
+                        <span style="font-size: 0.8rem; opacity: 0.5;">(صورة قريباً)</span>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center; color: var(--text-muted); margin-top: 1.5rem; font-size:0.9rem;">
+                <i class="fas fa-info-circle"></i> لقطات حقيقية من التطبيق قريباً.
+            </p>
+        </div>
+    </section>
+
+    <!-- === SECTION: الأسئلة الشائعة === -->
+    <section class="skills-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">❓ الأسئلة الشائعة</h2>
+                <p class="section-subtitle">كل ما تريد معرفته عن زاد بونو</p>
+            </div>
+
+            <div class="faq-list">
+                <!-- السؤال الأول -->
+                <details class="faq-item" open>
+                    <summary>
+                        هل التطبيق مجاني؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        نعم، تطبيق <strong>زاد بونو</strong> مجاني بالكامل ولا يحتوي على أي إعلانات مزعجة. كل المحتوى متاح للجميع بدون أي رسوم.
+                    </div>
+                </details>
+
+                <!-- السؤال الثاني -->
+                <details class="faq-item">
+                    <summary>
+                        هل يحتاج التطبيق إلى إنترنت؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        بعض المميزات تعمل <strong>بدون إنترنت</strong> مثل القرآن الكريم، الأذكار، حصن المسلم، والسبحة. أما البث المباشر والفيديوهات فتحتاج إلى اتصال بالإنترنت.
+                    </div>
+                </details>
+
+                <!-- السؤال الثالث -->
+                <details class="faq-item">
+                    <summary>
+                        كيف يعمل المساعد الذكي ؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <strong></strong> هو مساعد ذكي يمكنك سؤاله عن أي استفسار ديني، فيرد عليك بإجابات دقيقة وموثوقة من مصادر معتمدة، وهو الأول من نوعه في تطبيق إسلامي شامل.
+                    </div>
+                </details>
+
+                <!-- السؤال الرابع -->
+                <details class="faq-item">
+                    <summary>
+                        كيف أتابع ختمتي للقرآن؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        يمكنك متابعة ختمتك <strong>فردياً</strong> أو <strong>جماعياً</strong> مع الأصدقاء. في الختمة الجماعية، يمكن لكل مشارك حجز جزء لقراءته، وعند إتمامه يتم تحديث التقدم تلقائياً.
+                    </div>
+                </details>
+
+                <!-- السؤال الخامس -->
+                <details class="faq-item">
+                    <summary>
+                        هل التطبيق يدعم اللغة الإنجليزية؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+        التطبيق يدعم <strong>4 لغات</strong> حالياً:
+        <ul style="list-style: none; padding: 0; margin-top: 0.5rem; display: flex; flex-wrap: wrap; gap: 0.75rem;">
+            <li style="background: rgba(16, 185, 129, 0.1); padding: 0.3rem 1rem; border-radius: 50px; border: 1px solid rgba(16, 185, 129, 0.2);"> العربية</li>
+            <li style="background: rgba(16, 185, 129, 0.1); padding: 0.3rem 1rem; border-radius: 50px; border: 1px solid rgba(16, 185, 129, 0.2);"> الإنجليزية</li>
+            <li style="background: rgba(16, 185, 129, 0.1); padding: 0.3rem 1rem; border-radius: 50px; border: 1px solid rgba(16, 185, 129, 0.2);"> الفرنسية</li>
+            <li style="background: rgba(16, 185, 129, 0.1); padding: 0.3rem 1rem; border-radius: 50px; border: 1px solid rgba(16, 185, 129, 0.2);"> الإندونيسية</li>
+        </ul>
+        <p style="margin-top: 0.75rem; color: var(--text-muted); font-size: 0.95rem;">
+            يمكنك تغيير لغة التطبيق بسهولة من خلال إعدادات التطبيق.
+        </p>
+    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: المطور === -->
+    <section class="skills-section" id="developer" style="background: rgba(16, 185, 129, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">👨‍💻 المطور</h2>
+                <p class="section-subtitle">خلف هذا التطبيق المبارك</p>
+            </div>
+
+            <div class="developer-card">
+                <img src="images/mahmoud.jpg" alt="محمود حسين" onerror="this.style.display='none'">
+                <h3>محمود حسين (بونو المصري)</h3>
+                <p>مبرمج ومطور تطبيقات، يسعى لتقديم محتوى إسلامي هادف باستخدام أحدث التقنيات، لتكون عوناً للمسلمين في تقربهم إلى الله.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/bonoelmasry" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/mahmoud-khalil-editor" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/201020251207" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer" style="margin-top: 0;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 style="color: #D4AF37;">🕌 زاد بونو</h3>
+                    <p>رفيقك اليومي في العبادات والأذكار.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">اجعل يومك كله ذكراً لله</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#screenshots">لقطات</a></li>
+                        <li><a href="#faq">الأسئلة</a></li>
+                        <li><a href="index.html">الرئيسية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابع المطور</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com/bonoelmasry" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/mahmoud-khalil-editor" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/201020251207" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 محمود حسين (بونو المصري). جميع الحقوق محفوظة. | صُنع بـ ❤️ و 🕌</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- سكريبت الهامبرغر -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

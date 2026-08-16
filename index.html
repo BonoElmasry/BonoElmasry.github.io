@@ -1,0 +1,574 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>محمود حسين | مونتير & مطور | الإمارات</title>
+    
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome للأيقونات -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التصميم -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- === ANIMATED BACKGROUND === -->
+    <div class="animated-bg"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- === NAVBAR === -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">🎬</span>
+                <span class="logo-text">Mahmoud <span class="highlight">Hussein</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link active">الرئيسية</a></li>
+                <li><a href="#apps" class="nav-link">تطبيقات الموبايل</a></li>
+                <li><a href="#desktop" class="nav-link">سطح المكتب</a></li>
+                <li><a href="#skills" class="nav-link">المهارات</a></li>
+                <li><a href="#contact" class="nav-link">التواصل</a></li>
+            </ul>
+            <div class="hamburger" aria-label="القائمة" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === HERO SECTION === -->
+    <header class="hero" id="home">
+        <div class="hero-wrapper">
+            <div class="hero-content">
+                <!-- Animated Title -->
+                <div class="title-container">
+                    <h1 class="main-title">
+                        <span class="title-word" style="--index: 0;">محمود</span>
+                        <span class="title-word" style="--index: 1;">حسين</span>
+                    </h1>
+                </div>
+
+                <!-- Subtitle with Animation -->
+                <div class="subtitle-container">
+                    <h2 class="subtitle">
+                        <span class="role-badge">🎥 مونتير سينمائي</span>
+                        <span class="separator">&</span>
+                        <span class="role-badge">💻 مطور أندرويد</span>
+                    </h2>
+                </div>
+
+                <!-- Description -->
+                <p class="hero-description">
+                    أحول الأفكار الإبداعية إلى تجارب رقمية مذهلة
+                </p>
+
+                <!-- Tagline -->
+                <p class="hero-tagline">
+                    "الفن والتكنولوجيا يلتقيان هنا"
+                </p>
+
+                <!-- CTA Buttons -->
+                <div class="cta-buttons">
+                    <a href="#apps" class="btn btn-primary">
+                        <span class="btn-text">استكشف التطبيقات</span>
+                        <span class="btn-icon">↓</span>
+                    </a>
+                    <a href="#contact" class="btn btn-secondary">
+                        <span class="btn-text">تواصل معي</span>
+                        <span class="btn-icon">📞</span>
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="hero-stats">
+                    <div class="stat">
+                        <span class="stat-number">4+</span>
+                        <span class="stat-label">تطبيقات</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">1K+</span>
+                        <span class="stat-label">ساعات مونتاج</span>
+                    </div>
+                    <div class="stat">
+                        <span class="stat-number">100%</span>
+                        <span class="stat-label">احترافية</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Visual -->
+            <div class="hero-visual">
+                <div class="cinema-frame">
+                    <div class="frame-accent frame-top"></div>
+                    <div class="frame-accent frame-right"></div>
+                    <div class="frame-accent frame-bottom"></div>
+                    <div class="frame-accent frame-left"></div>
+                    <div class="cinema-content">
+                        <i class="fas fa-film"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="scroll-indicator">
+            <span>مرر لأسفل</span>
+            <div class="scroll-arrow">
+                <i class="fas fa-chevron-down"></i>
+            </div>
+        </div>
+    </header>
+
+    <!-- === APPS SECTION (موبايل) === -->
+    <section class="apps-section" id="apps">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📱 تطبيقات الموبايل</h2>
+                <p class="section-subtitle">مجموعة احترافية من تطبيقات الأندرويد التي دمجت فيها الفن والبرمجة</p>
+            </div>
+
+            <div class="apps-grid">
+                
+                <!-- App Card 1: Zad Bono -->
+                <div class="app-card" data-app="zad-bono">
+                    <div class="card-background"></div>
+                    <div class="card-glow"></div>
+                    
+                    <div class="card-header">
+                        <div class="app-icon">
+                            <img src="images/zadbono.jpg" alt="زاد بونو" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover; display: block;">
+                        </div>
+                        <div class="app-badges">
+                            <span class="badge badge-active">نشط</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="app-name">زاد بونو</h3>
+                        <p class="app-description">تطبيق عبادات إسلامية شاملة بتجربة مستخدم مريحة وتصميم حديث.</p>
+                        
+                        <div class="app-features">
+                            <span class="feature-tag">📿 عبادات</span>
+                            <span class="feature-tag">🎨 UI/UX</span>
+                            <span class="feature-tag">⚡ سريع</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="zad-bono.html" target="_blank" class="card-btn">
+                            <span>استكشف التطبيق</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- App Card 2: Nabbehny -->
+                <div class="app-card" data-app="nabbehny">
+                    <div class="card-background"></div>
+                    <div class="card-glow"></div>
+                    
+                    <div class="card-header">
+                        <div class="app-icon" style="background-image: url('images/nabhne.jpg'); background-size: cover; background-position: center; width: 65px; height: 65px; border-radius: 50%;"></div>
+                        <div class="app-badges">
+                            <span class="badge badge-active">نشط</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="app-name">نبهني</h3>
+                        <p class="app-description">تطبيق تنبيهات ذكي يساعدك على البقاء منظماً وإنتاجياً كل يوم.</p>
+                        
+                        <div class="app-features">
+                            <span class="feature-tag">⏰ تذكيرات</span>
+                            <span class="feature-tag">🤖 ذكي</span>
+                            <span class="feature-tag">📱 سلس</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="nabbehny.html" target="_blank" class="card-btn">
+                            <span>استكشف التطبيق</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- App Card 3: Shield -->
+                <div class="app-card" data-app="shield">
+                    <div class="card-background"></div>
+                    <div class="card-glow"></div>
+                    
+                    <div class="card-header">
+                        <div class="app-icon" style="background-image: url('images/sheld.png'); background-size: cover; background-position: center; width: 65px; height: 65px; border-radius: 50%;"></div>
+                        <div class="app-badges">
+                            <span class="badge badge-active">نشط</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="app-name">شيلد</h3>
+                        <p class="app-description">تطبيق أمان وحماية متقدم لحماية خصوصيتك وبياناتك الشخصية.</p>
+                        
+                        <div class="app-features">
+                            <span class="feature-tag">🔐 أمان</span>
+                            <span class="feature-tag">🛡️ حماية</span>
+                            <span class="feature-tag">🔒 خصوصية</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="shield.html" target="_blank" class="card-btn">
+                            <span>استكشف التطبيق</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- App Card 4: The Hive -->
+                <div class="app-card" data-app="the-hive">
+                    <div class="card-background"></div>
+                    <div class="card-glow"></div>
+                    
+                    <div class="card-header">
+                        <div class="app-icon" style="background-image: url('images/hive.png'); background-size: cover; background-position: center; width: 65px; height: 65px; border-radius: 50%;"></div>
+                        <div class="app-badges">
+                            <span class="badge badge-active">نشط</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="app-name">The Hive</h3>
+                        <p class="app-description">شبكة تواصل لامركزية للطوارئ تعمل بدون إنترنت لربط الأجهزة ببعضها.</p>
+                        
+                        <div class="app-features">
+                            <span class="feature-tag">📡 بدون إنترنت</span>
+                            <span class="feature-tag">🔗 لامركزية</span>
+                            <span class="feature-tag">🛡️ طوارئ</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="the-hive.html" target="_blank" class="card-btn">
+                            <span>استكشف التطبيق</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ===== DESKTOP APPS SECTION - تطبيقات سطح المكتب (جديد) ===== -->
+    <section class="apps-section" id="desktop" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255,255,255,0.05);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">💻 تطبيقات سطح المكتب</h2>
+                <p class="section-subtitle">برامج احترافية لأجهزة الكمبيوتر واللاب توب الحديثة</p>
+            </div>
+
+            <div class="apps-grid">
+                
+                <!-- Desktop App Card 1: المحاسب الذكي -->
+                <div class="app-card" data-app="accountant">
+                    <div class="card-background"></div>
+                    <div class="card-glow"></div>
+                    
+                    <div class="card-header">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); width: 65px; height: 65px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);">
+                            <i class="fas fa-robot"></i>
+                        </div>
+                        <div class="app-badges">
+                            <span class="badge badge-active" style="background: rgba(76, 175, 80, 0.2); color: #4CAF50; border-color: #4CAF50;">💻 ويندوز</span>
+                        </div>
+                    </div>
+
+                    <div class="card-body">
+                        <h3 class="app-name">المحاسب الذكي</h3>
+                        <p class="app-description">أول نظام إدارة للوكالات بذكاء اصطناعي صوتي. يدير النقلات والمبيعات والخزنة، ويفهم لهجة السوق المصرية، ويشتغل من غير نت.</p>
+                        
+                        <div class="app-features">
+                            <span class="feature-tag" style="color: #4CAF50; border-color: rgba(76, 175, 80, 0.3);">🎙️ ذكاء صوتي</span>
+                            <span class="feature-tag" style="color: #4CAF50; border-color: rgba(76, 175, 80, 0.3);">📦 نقلات ومبيعات</span>
+                            <span class="feature-tag" style="color: #4CAF50; border-color: rgba(76, 175, 80, 0.3);">🔒 بدون إنترنت</span>
+                        </div>
+                    </div>
+
+                    <div class="card-footer">
+                        <a href="accountant.html" target="_blank" class="card-btn" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);">
+                            <span>استكشف البرنامج</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Desktop App Card 2: إشارة -->
+<div class="app-card" data-app="eshra">
+    <div class="card-background"></div>
+    <div class="card-glow"></div>
+    
+    <div class="card-header">
+        <div class="app-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); width: 65px; height: 65px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);">
+            <i class="fas fa-hands"></i>
+        </div>
+        <div class="app-badges">
+            <span class="badge badge-active" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B; border-color: #F59E0B;">💻 ويندوز</span>
+        </div>
+    </div>
+
+    <div class="card-body">
+        <h3 class="app-name">إشارة</h3>
+        <p class="app-description">أول حل وطني يعمل دون إنترنت لتحويل أي فيديو إلى لغة الإشارة الإماراتية بضغطة زر، باستخدام نماذج ذكاء اصطناعي متطورة تعمل محلياً.</p>
+        
+        <div class="app-features">
+            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🤖 ذكاء اصطناعي</span>
+            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🔒 بدون إنترنت</span>
+            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🇦🇪 لغة إماراتية</span>
+        </div>
+    </div>
+
+    <div class="card-footer">
+        <a href="eshra-ai.html" target="_blank" class="card-btn" style="background: linear-gradient(135deg, #F59E0B, #D97706); box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);">
+            <span>استكشف البرنامج</span>
+            <i class="fas fa-arrow-left"></i>
+        </a>
+    </div>
+</div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- === SKILLS SECTION === -->
+    <section class="skills-section" id="skills">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">المهارات والخبرات</h2>
+                <p class="section-subtitle">مزيج فريد من المهارات الفنية والبرمجية</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Skill Card 1 -->
+                <div class="skill-card">
+                    <div class="skill-icon">🎬</div>
+                    <h3>المونتاج السينمائي</h3>
+                    <p>خبرة احترافية في تحرير الفيديوهات وإضافة المؤثرات البصرية المذهلة</p>
+                    <div class="skill-level">
+                        <div class="progress-bar" style="width: 95%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 2 -->
+                <div class="skill-card">
+                    <div class="skill-icon">💻</div>
+                    <h3>تطوير الأندرويد</h3>
+                    <p>بناء تطبيقات أندرويد احترافية باستخدام أحدث التقنيات والمكتبات</p>
+                    <div class="skill-level">
+                        <div class="progress-bar" style="width: 90%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 3 -->
+                <div class="skill-card">
+                    <div class="skill-icon">🎨</div>
+                    <h3>تصميم الواجهات</h3>
+                    <p>تصميم واجهات مستخدم عصرية وجميلة وسهلة الاستخدام</p>
+                    <div class="skill-level">
+                        <div class="progress-bar" style="width: 92%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 4 -->
+                <div class="skill-card">
+                    <div class="skill-icon">⚡</div>
+                    <h3>الأداء والتحسين</h3>
+                    <p>تحسين أداء التطبيقات وجعلها سريعة وفعالة للغاية</p>
+                    <div class="skill-level">
+                        <div class="progress-bar" style="width: 88%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 5 -->
+                <div class="skill-card">
+                    <div class="skill-icon">🎥</div>
+                    <h3>الإنتاج والمحتوى</h3>
+                    <p>إنتاج محتوى بصري احترافي وعالي الجودة للمنصات المختلفة</p>
+                    <div class="skill-level">
+                        <div class="progress-bar" style="width: 94%"></div>
+                    </div>
+                </div>
+
+                <!-- Skill Card 6 -->
+                <div class="skill-card">
+                    <div class="skill-icon">🚀</div>
+                    <h3>الابتكار والإبداع</h3>
+                    <p>إيجاد حلول إبداعية وابتكارية للمشاكل المعقدة</p>
+                    <div class="skill-level">
+                        <div class="progress-bar" style="width: 96%"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === CONTACT SECTION (نموذج التواصل الحقيقي) === -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">تواصل معي</h2>
+                <p class="section-subtitle">هل لديك مشروع في بالك؟ دعنا نتعاون ونصنع شيئاً مميزاً</p>
+            </div>
+
+            <div class="contact-content">
+                <div class="contact-info">
+                    <!-- بطاقة البريد الإلكتروني -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><img src="images/email.png" alt="البريد الإلكتروني"></div>
+                        <h3>البريد الإلكتروني</h3>
+                        <a href="mailto:bonoelmasry2014@gmail.com">bonoelmasry2014@gmail.com</a>
+                    </div>
+
+                    <!-- بطاقة واتساب مصر -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><img src="images/whatsapp.png" alt="واتساب مصر"></div>
+                        <h3>واتساب مصر</h3>
+                        <a href="https://wa.me/201020251207" target="_blank">+20 102 025 1207</a>
+                    </div>
+
+                    <!-- بطاقة الهاتف الإماراتي -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><img src="images/phone.png" alt="هاتف الإمارات"></div>
+                        <h3>الإمارات</h3>
+                        <a href="tel:+971561103382">+971 56 110 3382</a>
+                        <a href="https://wa.me/971561103382" target="_blank" class="whatsapp-link">
+                            <i class="fab fa-whatsapp"></i> واتساب
+                        </a>
+                    </div>
+
+                    <!-- بطاقة فيسبوك -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><img src="images/facebook.png" alt="فيسبوك"></div>
+                        <h3>فيسبوك</h3>
+                        <a href="https://facebook.com/bonoelmasry" target="_blank">Mahmoud Hussein</a>
+                    </div>
+
+                    <!-- بطاقة لينكدإن -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><img src="images/linkedin.png" alt="لينكدإن"></div>
+                        <h3>لينكدإن</h3>
+                        <a href="https://www.linkedin.com/in/mahmoud-khalil-editor?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">Mahmoud Khalil</a>
+                    </div>
+
+                    <!-- بطاقة يوتيوب -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><img src="images/youtube.png" alt="يوتيوب"></div>
+                        <h3>قناة اليوتيوب</h3>
+                        <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank">Bono_Elmasry</a>
+                    </div>
+
+                    <!-- بطاقة الموقع -->
+                    <div class="contact-card">
+                        <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>الموقع</h3>
+                        <p>الإمارات العربية المتحدة</p>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <!-- تم التعديل هنا: إضافة action و method وإلغاء التعارض مع script.js -->
+                    <form class="form" id="real-contact-form" action="https://formsubmit.co/bonoelmasry2014@gmail.com" method="POST">
+                        <!-- حماية من السبام -->
+                        <input type="hidden" name="_captcha" value="false">
+                        <!-- عنوان الرسالة -->
+                        <input type="hidden" name="_subject" value="رسالة جديدة من موقع محمود حسين">
+                        <!-- إعادة توجيه بعد الإرسال (اختياري) -->
+                        <input type="hidden" name="_next" value="https://bonoelmasry.github.io/thank-you.html">
+                        
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="اسمك" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" name="email" placeholder="بريدك الإلكتروني" required>
+                        </div>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="رسالتك..." rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span>إرسال الرسالة</span>
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>محمود حسين</h3>
+                    <p>مونتير سينمائي | مطور تطبيقات</p>
+                </div>
+                <div class="footer-section">
+                    <h3>الروابط السريعة</h3>
+                    <ul>
+                        <li><a href="#home">الرئيسية</a></li>
+                        <li><a href="#apps">تطبيقات الموبايل</a></li>
+                        <li><a href="#desktop">سطح المكتب</a></li>
+                        <li><a href="#skills">المهارات</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابعني</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com/bonoelmasry" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/mahmoud-khalil-editor?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/201020251207" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                        <a href="mailto:bonoelmasry2014@gmail.com" class="social-link"><i class="fas fa-envelope"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 محمود حسين. جميع الحقوق محفوظة. | صُنع بـ ❤️ و 💻</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="script.js"></script>
+    
+    <!-- سكريبت إضافي لحل تعارض نموذج التواصل مع script.js القديم -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var oldForm = document.querySelector('.form');
+            // لو النموذج موجود وله action بتاع formsubmit
+            if (oldForm && oldForm.action && oldForm.action.includes('formsubmit.co')) {
+                // بنستنسخ النموذج عشان نشيل أي event listeners قديمة (زي الـ preventDefault بتاع script.js)
+                var newForm = oldForm.cloneNode(true);
+                oldForm.parentNode.replaceChild(newForm, oldForm);
+                
+                // إضافة مستمع جديد للإرسال الفعلي (بس كتأكيد إضافي)
+                newForm.addEventListener('submit', function(e) {
+                    // نسمح بالإرسال الطبيعي، مش هنعمل preventDefault
+                    console.log('جاري إرسال الرسالة إلى البريد الإلكتروني...');
+                });
+            }
+        });
+    </script>
+</body>
+</html>

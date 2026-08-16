@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>إشارة | الحل الذكي للترجمة الفورية للغة الإشارة الإماراتية | BonoApp</title>
+    
+    <!-- تحسين محركات البحث SEO -->
+    <meta name="description" content="أول حل وطني يعمل دون إنترنت لتحويل أي فيديو إلى لغة الإشارة الإماراتية بضغطة زر، باستخدام نماذج ذكاء اصطناعي متطورة تعمل محلياً.">
+    <meta name="keywords" content="لغة إشارة, ترجمة لغة الإشارة, إمارات, أصحاب الهمم, ذكاء اصطناعي, فيديوهات, إشارة, محمود حسين">
+    <meta name="author" content="محمود حسين">
+    
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التصميم الأساسي -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ===== تنسيقات خاصة بصفحة إشارة (الألوان الذهبية) ===== -->
+    <style>
+        /* ==========================================================
+           الألوان الخاصة بالبرنامج (ذهبي / عنبري)
+           ========================================================== */
+        :root {
+            --esh-gold: #F59E0B;
+            --esh-gold-dark: #D97706;
+            --esh-gold-light: #FBBF24;
+            --esh-amber: #B45309;
+            --esh-bg-dark: #0F172A;
+        }
+
+        /* تعديل لون الروابط واللمسات في هذه الصفحة */
+        .logo-text .highlight {
+            color: var(--esh-gold) !important;
+            -webkit-text-fill-color: var(--esh-gold) !important;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            background: var(--esh-gold) !important;
+        }
+        .nav-link:hover,
+        .nav-link.active {
+            color: var(--esh-gold) !important;
+        }
+
+        .section-title {
+            background: linear-gradient(135deg, var(--esh-gold), var(--esh-gold-dark)) !important;
+            -webkit-background-clip: text !important;
+            -webkit-text-fill-color: transparent !important;
+            background-clip: text !important;
+        }
+        .section-title::after {
+            background: linear-gradient(90deg, var(--esh-gold), var(--esh-gold-dark)) !important;
+        }
+
+        /* ==========================================================
+           أنيميشن الهيرو (إشارة ذهبية متحركة)
+           ========================================================== */
+        .esh-hero-icon {
+            position: relative;
+            width: 130px;
+            height: 130px;
+            margin: 0 auto 1.5rem;
+            border-radius: 50%;
+            border: 3px solid rgba(245, 158, 11, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 158, 11, 0.08);
+            box-shadow: 0 0 50px rgba(245, 158, 11, 0.15);
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+        .esh-hero-icon::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            right: -8px;
+            bottom: -8px;
+            border-radius: 50%;
+            border: 2px solid transparent;
+            border-top-color: var(--esh-gold);
+            border-right-color: var(--esh-gold-light);
+            animation: spin-border 4s linear infinite;
+        }
+        @keyframes spin-border {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        @keyframes pulse-glow {
+            0%, 100% { box-shadow: 0 0 30px rgba(245, 158, 11, 0.15); }
+            50% { box-shadow: 0 0 60px rgba(245, 158, 11, 0.3); }
+        }
+        .esh-hero-icon i {
+            font-size: 4rem;
+            color: var(--esh-gold);
+            z-index: 2;
+            position: relative;
+        }
+
+        /* ==========================================================
+           تنسيقات الخطوات (Steps)
+           ========================================================== */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .step-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+        .step-card:hover {
+            transform: translateY(-10px);
+            border-color: var(--esh-gold);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.12);
+        }
+        .step-number {
+            display: inline-block;
+            width: 45px;
+            height: 45px;
+            line-height: 45px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, var(--esh-gold), var(--esh-gold-dark));
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.3rem;
+            margin-bottom: 0.8rem;
+        }
+        .step-card h3 {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+            color: var(--text-light);
+        }
+        .step-card p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================
+           تنسيقات لقطات الشاشة
+           ========================================================== */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .screenshot-item {
+            border-radius: var(--radius-md);
+            overflow: hidden;
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            transition: var(--transition-normal);
+            background: rgba(255, 255, 255, 0.03);
+        }
+        .screenshot-item:hover {
+            transform: translateY(-8px) scale(1.02);
+            border-color: var(--esh-gold);
+            box-shadow: 0 15px 40px rgba(245, 158, 11, 0.12);
+        }
+        .screenshot-image {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            display: block;
+            background: var(--bg-darker);
+        }
+        .screenshot-placeholder {
+            height: 300px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            background: rgba(245, 158, 11, 0.03);
+            color: var(--text-muted);
+            gap: 1rem;
+            padding: 1rem;
+            text-align: center;
+        }
+        .screenshot-placeholder i {
+            font-size: 3rem;
+            color: var(--esh-gold);
+            opacity: 0.5;
+        }
+
+        /* ==========================================================
+           تنسيقات بطاقات حالات الاستخدام
+           ========================================================== */
+        .usecase-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .usecase-card {
+            background: rgba(255, 255, 255, 0.02);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: var(--radius-lg);
+            padding: 1.8rem 1.2rem;
+            text-align: center;
+            transition: var(--transition-normal);
+        }
+        .usecase-card:hover {
+            transform: translateY(-6px);
+            border-color: var(--esh-gold);
+        }
+        .usecase-card .icon {
+            font-size: 2.5rem;
+            margin-bottom: 0.8rem;
+            display: block;
+        }
+        .usecase-card h4 {
+            font-size: 1.1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text-light);
+        }
+        .usecase-card p {
+            color: var(--text-muted);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        /* ==========================================================
+           تنسيقات الأسئلة الشائعة (FAQ) - الحل المضمون بـ <details>
+           ========================================================== */
+        .faq-list {
+            max-width: 800px;
+            margin: 2rem auto 0;
+        }
+        .faq-item {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(245, 158, 11, 0.15);
+            border-radius: var(--radius-md);
+            padding: 1.2rem 1.5rem;
+            margin-bottom: 1rem;
+            transition: var(--transition-normal);
+        }
+        .faq-item:hover {
+            background: rgba(255, 255, 255, 0.06);
+        }
+        .faq-item[open] {
+            border-color: var(--esh-gold);
+        }
+        .faq-item summary::-webkit-details-marker {
+            display: none;
+        }
+        .faq-item summary {
+            list-style: none;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #fff;
+        }
+        .faq-item summary i {
+            transition: transform 0.3s;
+            color: var(--esh-gold);
+        }
+        .faq-item[open] summary i {
+            transform: rotate(180deg);
+        }
+        .faq-answer {
+            padding-top: 0;
+            color: var(--text-muted);
+            line-height: 1.7;
+            transition: padding 0.3s ease;
+        }
+        .faq-item[open] .faq-answer {
+            padding-top: 1rem;
+        }
+
+        /* ==========================================================
+           تنسيقات المطور (Developer)
+           ========================================================== */
+        .developer-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            border: 1px solid rgba(245, 158, 11, 0.2);
+            border-radius: var(--radius-lg);
+            padding: 2.5rem 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 2rem auto 0;
+        }
+        .developer-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--esh-gold);
+            margin-bottom: 1rem;
+        }
+        .developer-card h3 {
+            font-size: 1.5rem;
+        }
+        .developer-card p {
+            color: var(--text-muted);
+            margin: 0.5rem 0 1.5rem;
+        }
+
+        /* ==========================================================
+           زر مخصص
+           ========================================================== */
+        .btn-gold {
+            background: linear-gradient(135deg, var(--esh-gold), var(--esh-gold-dark));
+            color: #fff;
+            border-color: var(--esh-gold);
+            box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);
+        }
+        .btn-gold:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 40px rgba(245, 158, 11, 0.4);
+        }
+
+        /* تعديلات للهيرو */
+        .hero-description {
+            max-width: 700px;
+            margin: 1.5rem auto;
+        }
+
+        @media (max-width: 768px) {
+            .screenshot-image {
+                height: 220px;
+            }
+            .screenshot-placeholder {
+                height: 220px;
+            }
+            .steps-grid {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+        @media (max-width: 480px) {
+            .steps-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === ANIMATED BACKGROUND === -->
+    <div class="animated-bg"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- === NAVBAR === -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">
+                    <img src="images/eshra-icon.png" alt="لوجو إشارة" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #F59E0B; box-shadow: 0 0 10px rgba(245, 158, 11, 0.3);" onerror="this.style.display='none'; this.parentElement.innerHTML='🤝'">
+                </span>
+                <span class="logo-text">إشـ<span class="highlight">ـارة</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">🏠 الرئيسية</a></li>
+                <li><a href="#features" class="nav-link">المميزات</a></li>
+                <li><a href="#how-it-works" class="nav-link">كيف يعمل</a></li>
+                <li><a href="#usecases" class="nav-link">جهات الاستخدام</a></li>
+                <li><a href="#faq" class="nav-link">الأسئلة</a></li>
+            </ul>
+            <div class="hamburger" aria-label="القائمة" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- === HERO SECTION === -->
+    <header class="hero" id="home">
+        <div class="hero-wrapper" style="grid-template-columns: 1fr; text-align: center;">
+            <div class="hero-content">
+                
+                <!-- Hero Icon Animation -->
+                <div class="esh-hero-icon">
+                    <i class="fas fa-hands"></i>
+                </div>
+
+                <h1 class="main-title" style="font-size: clamp(2.5rem, 5vw, 4rem);">
+                    المُحول الذكي <span style="color: #F59E0B;">لغة الإشارة</span>
+                </h1>
+                
+                <p class="hero-description" style="max-width: 800px; margin: 1.5rem auto; font-size: 1.2rem;">
+                    أول حل وطني يعمل <strong>دون إنترنت</strong> لتحويل أي فيديو إلى لغة الإشارة الإماراتية بضغطة زر، باستخدام نماذج ذكاء اصطناعي متطورة تعمل محلياً.
+                </p>
+
+                <div style="background: rgba(245, 158, 11, 0.1); border-radius: var(--radius-full); padding: 0.75rem 1.5rem; display: inline-block; border: 1px solid rgba(245, 158, 11, 0.3); margin-bottom: 2rem;">
+                    <span style="color: #FBBF24;">🇦🇪 مصمم خصيصاً للهجة الإماراتية ولغة الإشارة الإماراتية</span>
+                </div>
+
+                <!-- أزرار التحميل / التواصل -->
+                <div class="cta-buttons" style="justify-content: center; gap: 1.5rem;">
+                    <a href="https://wa.me/201020251207" target="_blank" class="btn btn-gold">
+                        <span class="btn-text"><i class="fab fa-whatsapp"></i> اطلب عرضاً توضيحياً</span>
+                        <span class="btn-icon"><i class="fas fa-arrow-left"></i></span>
+                    </a>
+                    <a href="#features" class="btn btn-secondary">
+                        <span class="btn-text">اكتشف المميزات</span>
+                        <span class="btn-icon">↓</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- === SECTION: المميزات === -->
+    <section class="skills-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">✨ لماذا إشارة؟</h2>
+                <p class="section-subtitle">حل متكامل يجمع بين التقنية والإنسانية</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card" style="border-top: 3px solid #F59E0B;">
+                    <div class="skill-icon" style="color: #F59E0B;"><i class="fas fa-lock"></i></div>
+                    <h3>🔒 خصوصية مطلقة</h3>
+                    <p>يعمل بالكامل <strong>دون إنترنت</strong>، لا تغادر بياناتك جهازك أبداً. مثالي للجهات الحكومية والمؤسسات الحساسة.</p>
+                </div>
+
+                <div class="skill-card" style="border-top: 3px solid #D97706;">
+                    <div class="skill-icon" style="color: #D97706;"><i class="fas fa-flag"></i></div>
+                    <h3>🇦🇪 لغة إماراتية أصيلة</h3>
+                    <p>مُدرَّب على <strong>اللهجة الإماراتية</strong> وإشاراتها المعتمدة، وليس مجرد ترجمة حرفية من الفصحى.</p>
+                </div>
+
+                <div class="skill-card" style="border-top: 3px solid #FBBF24;">
+                    <div class="skill-icon" style="color: #FBBF24;"><i class="fas fa-bolt"></i></div>
+                    <h3>⚡ سرعة فائقة</h3>
+                    <p>يحول الفيديو في <strong>دقائق معدودة</strong> دون تدخل بشري، بفضل معالجة الذكاء الاصطناعي المحلية.</p>
+                </div>
+
+                <div class="skill-card" style="border-top: 3px solid #B45309;">
+                    <div class="skill-icon" style="color: #B45309;"><i class="fas fa-palette"></i></div>
+                    <h3>🎨 قابل للتخصيص</h3>
+                    <p>اختر المترجم (ذكر/أنثى) ومكانه وحجمه داخل الفيديو ليناسب هوية مؤسستك.</p>
+                </div>
+
+                <div class="skill-card" style="border-top: 3px solid #92400E;">
+                    <div class="skill-icon" style="color: #92400E;"><i class="fas fa-chart-bar"></i></div>
+                    <h3>📊 تقارير مفصلة</h3>
+                    <p>يوضح الكلمات التي ترجمها والكلمات الجديدة المطلوبة لتطوير القاموس بشكل مستمر.</p>
+                </div>
+
+                <div class="skill-card" style="border-top: 3px solid #78350F;">
+                    <div class="skill-icon" style="color: #78350F;"><i class="fas fa-brain"></i></div>
+                    <h3>🧠 ذكاء سياقي</h3>
+                    <p>يستخدم محركاً ذكياً يفهم السياق ليختار <strong>أفضل إشارة</strong> تناسب المعنى، وليس مجرد ترجمة كلمة بكلمة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: كيف يعمل === -->
+    <section class="skills-section" id="how-it-works" style="background: rgba(245, 158, 11, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">⚡ كيف يعمل؟</h2>
+                <p class="section-subtitle">بضع خطوات بسيطة لتحصل على فيديو كامل بلغة الإشارة</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">١</div>
+                    <h3>📤 ارفع الفيديو</h3>
+                    <p>اختر ملف الفيديو الذي تريد ترجمته (MP4, AVI, MOV).</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">٢</div>
+                    <h3>🎧 استخراج النص</h3>
+                    <p>يُحلل الذكاء الاصطناعي الصوت ويستخرج الكلمات بدقة عالية.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">٣</div>
+                    <h3>🧠 مطابقة ذكية</h3>
+                    <p>يبحث المحرك عن أفضل إشارات تناسب المعنى والسياق.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">٤</div>
+                    <h3>🎬 الدمج الآلي</h3>
+                    <p>يُركب المترجم داخل الفيديو بمظهر احترافي وسلس.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">٥</div>
+                    <h3>✅ فيديو جاهز</h3>
+                    <p>احفظ الفيديو النهائي أو شاركه مباشرة مع فريقك.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: جهات الاستخدام === -->
+    <section class="skills-section" id="usecases">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">🏛️ من يحتاج إشارة؟</h2>
+                <p class="section-subtitle">حل شامل لمختلف القطاعات في دولة الإمارات</p>
+            </div>
+
+            <div class="usecase-grid">
+                <div class="usecase-card">
+                    <span class="icon">🏢</span>
+                    <h4>الجهات الحكومية</h4>
+                    <p>إضافة لغة الإشارة للتوعية المرئية والقوانين والإجراءات الحكومية.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="icon">🏥</span>
+                    <h4>المستشفيات</h4>
+                    <p>توجيه المرضى الصم وتعليمات الأدوية بلغة الإشارة الواضحة.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="icon">🎓</span>
+                    <h4>المؤسسات التعليمية</h4>
+                    <p>جعل المحتوى التعليمي الرقمي متاحاً للطلاب الصم وضعاف السمع.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="icon">📺</span>
+                    <h4>القنوات الإعلامية</h4>
+                    <p>ترجمة النشرات الإخبارية والبرامج تلقائياً بلغة الإشارة.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="icon">✈️</span>
+                    <h4>المطارات والمنافذ</h4>
+                    <p>فيديوهات إرشادية للمسافرين الصم بعدة لغات وإشارات.</p>
+                </div>
+                <div class="usecase-card">
+                    <span class="icon">🤝</span>
+                    <h4>مراكز أصحاب الهمم</h4>
+                    <p>أداة متكاملة لخدمة الصم وتعزيز استقلاليتهم في المجتمع.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: لقطات الشاشة === -->
+    <section class="skills-section" id="screenshots" style="background: rgba(245, 158, 11, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">📸 لقطات من البرنامج</h2>
+                <p class="section-subtitle">واجهة بسيطة وقوية في آن واحد</p>
+            </div>
+
+            <div class="screenshots-grid">
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-video"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">شاشة رفع الفيديو</p>
+                        <span style="font-size: 0.8rem; opacity: 0.5;">(صورة قريباً)</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-hands"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">مترجم الإشارة داخل الفيديو</p>
+                        <span style="font-size: 0.8rem; opacity: 0.5;">(صورة قريباً)</span>
+                    </div>
+                </div>
+                <div class="screenshot-item">
+                    <div class="screenshot-placeholder">
+                        <i class="fas fa-file-alt"></i>
+                        <p style="color: var(--text-muted); font-size: 0.9rem;">تقرير الترجمة</p>
+                        <span style="font-size: 0.8rem; opacity: 0.5;">(صورة قريباً)</span>
+                    </div>
+                </div>
+            </div>
+            <p style="text-align:center; color: var(--text-muted); margin-top: 1.5rem; font-size:0.9rem;">
+                <i class="fas fa-info-circle"></i> لقطات حقيقية من البرنامج قريباً.
+            </p>
+        </div>
+    </section>
+
+    <!-- === SECTION: الأسئلة الشائعة === -->
+    <section class="skills-section" id="faq">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">❓ الأسئلة الشائعة</h2>
+                <p class="section-subtitle">كل ما تريد معرفته عن إشارة</p>
+            </div>
+
+            <div class="faq-list">
+                <!-- السؤال الأول -->
+                <details class="faq-item" open>
+                    <summary>
+                        هل البرنامج يحتاج إلى إنترنت؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        <strong>لا نهائياً!</strong> إشارة يعمل <strong>كاملاً دون اتصال بالإنترنت</strong>. كل نماذج الذكاء الاصطناعي ومعالجة البيانات تتم على جهازك مباشرة، مما يضمن السرعة والخصوصية التامة.
+                    </div>
+                </details>
+
+                <!-- السؤال الثاني -->
+                <details class="faq-item">
+                    <summary>
+                        ما هي أنظمة التشغيل التي يدعمها؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        النسخة الحالية تعمل على <strong>ويندوز 10 و 11</strong> (إصدارات 64-bit). نسخة الماك (MacOS) قيد التطوير لتشمل جميع المستخدمين.
+                    </div>
+                </details>
+
+                <!-- السؤال الثالث -->
+                <details class="faq-item">
+                    <summary>
+                        هل يدعم البرنامج لهجات عربية أخرى؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        حالياً البرنامج <strong>مخصص للهجة الإماراتية</strong> ولغة الإشارة الإماراتية المعتمدة. لكننا نخطط لإضافة لهجات خليجية أخرى في الإصدارات المستقبلية بناءً على الطلب.
+                    </div>
+                </details>
+
+                <!-- السؤال الرابع -->
+                <details class="faq-item">
+                    <summary>
+                        كيف يتم التعامل مع الكلمات الجديدة غير الموجودة في القاموس؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        البرنامج يقدم <strong>تقريراً مفصلاً</strong> بالكلمات التي لم يجد لها إشارة مناسبة، ويمكن للمؤسسة إضافة الإشارات الجديدة يدوياً لتوسيع القاموس بشكل مستمر.
+                    </div>
+                </details>
+
+                <!-- السؤال الخامس -->
+                <details class="faq-item">
+                    <summary>
+                        هل يمكن تخصيص شكل المترجم داخل الفيديو؟
+                        <i class="fas fa-chevron-down"></i>
+                    </summary>
+                    <div class="faq-answer">
+                        نعم، يمكنك اختيار <strong>المترجم (ذكر/أنثى)</strong>، وتحديد <strong>مكانه وحجمه</strong> داخل الفيديو ليناسب هوية مؤسستك واحتياجاتك البصرية.
+                    </div>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SECTION: المطور === -->
+    <section class="skills-section" id="developer" style="background: rgba(245, 158, 11, 0.03);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">👨‍💻 المطور</h2>
+                <p class="section-subtitle">خلف هذا المشروع الوطني والإنساني</p>
+            </div>
+
+            <div class="developer-card">
+                <img src="images/mahmoud.jpg" alt="محمود حسين" onerror="this.style.display='none'">
+                <h3>محمود حسين (بونو المصري)</h3>
+                <p>مبرمج ومطور تطبيقات، مهتم بتوظيف الذكاء الاصطناعي في خدمة المجتمع. يهدف إلى جعل التكنولوجيا متاحة وشاملة للجميع، وخاصة فئة أصحاب الهمم.</p>
+                <div class="social-links">
+                    <a href="https://facebook.com/bonoelmasry" target="_blank"><i class="fab fa-facebook"></i></a>
+                    <a href="https://www.linkedin.com/in/mahmoud-khalil-editor" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/201020251207" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer" style="margin-top: 0;">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3 style="color: #F59E0B;">🤝 إشارة</h3>
+                    <p>الحل الذكي للترجمة الفورية للغة الإشارة الإماراتية.</p>
+                    <p style="font-size: 0.85rem; color: var(--text-muted); margin-top: 0.5rem;">الصوت يتحول إلى إشارة</p>
+                </div>
+                <div class="footer-section">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#features">المميزات</a></li>
+                        <li><a href="#how-it-works">كيف يعمل</a></li>
+                        <li><a href="#usecases">جهات الاستخدام</a></li>
+                        <li><a href="#faq">الأسئلة</a></li>
+                        <li><a href="index.html">الرئيسية</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>تابع المطور</h3>
+                    <div class="social-links">
+                        <a href="https://facebook.com/bonoelmasry" target="_blank" class="social-link"><i class="fab fa-facebook"></i></a>
+                        <a href="https://www.linkedin.com/in/mahmoud-khalil-editor" target="_blank" class="social-link"><i class="fab fa-linkedin"></i></a>
+                        <a href="https://wa.me/201020251207" target="_blank" class="social-link"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank" class="social-link"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 محمود حسين (بونو المصري). جميع الحقوق محفوظة. | صُنع بـ ❤️ و 🤝</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+
+    <!-- سكريبت الهامبرغر -->
+    <script>
+        const hamburger = document.querySelector('.hamburger');
+        const navMenu = document.querySelector('.nav-menu');
+        if (hamburger && navMenu) {
+            hamburger.addEventListener('click', function() {
+                hamburger.classList.toggle('active');
+                navMenu.classList.toggle('active');
+            });
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    navMenu.classList.remove('active');
+                });
+            });
+        }
+    </script>
+
+</body>
+</html>

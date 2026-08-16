@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شكراً لتواصلك | محمود حسين</title>
+    
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التصميم الأساسي -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* تنسيقات خاصة بصفحة الشكر */
+        .thank-you-wrapper {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .thank-you-card {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(30px);
+            -webkit-backdrop-filter: blur(30px);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-xl);
+            padding: 4rem 3rem;
+            max-width: 600px;
+            width: 100%;
+            box-shadow: var(--shadow-xl);
+            animation: fadeInUp 0.8s ease-out;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .thank-you-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(0, 212, 255, 0.08), transparent);
+            animation: float 20s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .thank-you-icon {
+            font-size: 5rem;
+            color: #2ecc71;
+            margin-bottom: 1.5rem;
+            display: inline-block;
+            animation: popIn 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            position: relative;
+            z-index: 1;
+        }
+
+        @keyframes popIn {
+            0% {
+                opacity: 0;
+                transform: scale(0) rotate(-30deg);
+            }
+            100% {
+                opacity: 1;
+                transform: scale(1) rotate(0deg);
+            }
+        }
+
+        .thank-you-title {
+            font-size: 2.8rem;
+            font-weight: 900;
+            margin-bottom: 1rem;
+            background: linear-gradient(135deg, #2ecc71, #27ae60);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            position: relative;
+            z-index: 1;
+        }
+
+        .thank-you-message {
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            line-height: 1.8;
+            margin-bottom: 2.5rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .thank-you-message strong {
+            color: var(--text-light);
+            font-weight: 700;
+        }
+
+        .btn-home {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            padding: 1rem 2.5rem;
+            background: linear-gradient(135deg, var(--primary-color), var(--primary-alt));
+            color: var(--bg-dark);
+            border-radius: var(--radius-full);
+            font-weight: 700;
+            font-size: 1rem;
+            text-decoration: none;
+            transition: var(--transition-normal);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.3);
+            position: relative;
+            z-index: 1;
+        }
+
+        .btn-home:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 40px rgba(0, 212, 255, 0.5);
+        }
+
+        .btn-home i {
+            transition: var(--transition-normal);
+        }
+
+        .btn-home:hover i {
+            transform: translateX(-4px);
+        }
+
+        /* إخفاء النافبار والهيرو والفوتر الأصليين (مش موجودين هنا أصلاً) */
+        /* مجرد تنسيق للهوامش */
+
+        @media (max-width: 480px) {
+            .thank-you-card {
+                padding: 2.5rem 1.5rem;
+            }
+            .thank-you-title {
+                font-size: 2rem;
+            }
+            .thank-you-icon {
+                font-size: 4rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === ANIMATED BACKGROUND (نفس الموقع الرئيسي) === -->
+    <div class="animated-bg"></div>
+    <div class="floating-orbs">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
+    </div>
+
+    <!-- === محتوى صفحة الشكر === -->
+    <div class="thank-you-wrapper">
+        <div class="thank-you-card">
+            <!-- أيقونة النجاح -->
+            <div class="thank-you-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+
+            <!-- العنوان -->
+            <h1 class="thank-you-title">شكراً لتواصلك! 🙏</h1>
+
+            <!-- رسالة الشكر -->
+            <p class="thank-you-message">
+                تم استلام رسالتك بنجاح.<br>
+                سأقوم بالرد عليك في <strong>أقرب وقت ممكن</strong>.
+                <br><br>
+                <span style="color: var(--text-muted); font-size: 0.95rem;">
+                    <i class="fas fa-heart" style="color: #ff006e;"></i> 
+                    شكراً لثقتك، أنتظر تواصلك مجدداً!
+                </span>
+            </p>
+
+            <!-- زر العودة للرئيسية -->
+            <a href="index.html" class="btn-home">
+                <span>العودة إلى الصفحة الرئيسية</span>
+                <i class="fas fa-arrow-left"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Scripts (اختياري، لو محتاج أي تفاعل بسيط) -->
+    <script>
+        // أي كود إضافي لو حبيت، مثلاً تأثيرات عند التحميل
+        console.log('✅ صفحة الشكر تم تحميلها بنجاح!');
+    </script>
+
+</body>
+</html>

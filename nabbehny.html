@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>نبهني | المساعد الشخصي الذكي | BonoApp</title>
+    
+    <!-- تحسين محركات البحث SEO -->
+    <meta name="description" content="تطبيق نبهني هو مساعد شخصي ذكي للتذكيرات الصوتية والمكانية باللهجات العربية. يفهم لهجتك، يحلل أوامرك، ويذكرك في الوقت والمكان المناسبين.">
+    <meta name="keywords" content="تطبيق تذكير, تذكير صوتي, تذكير مكاني, ذكاء اصطناعي, لهجة مصرية, لهجة إماراتية, نبهني, محمود حسين">
+    <meta name="author" content="محمود حسين">
+    
+    <!-- خطوط جوجل -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- ملف التصميم الأساسي -->
+    <link rel="stylesheet" href="style.css">
+    
+    <!-- أنماط إضافية للأقسام الجديدة -->
+    <style>
+        /* تنسيق قسم كيف يعمل */
+        .steps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+        .step-card {
+            background: rgba(255,255,255,0.05);
+            border: 1px solid rgba(255,255,255,0.1);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .step-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.2);
+        }
+        .step-number {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #6c5ce7, #a29bfe);
+            color: #fff;
+            font-weight: 900;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .step-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 0.8rem;
+        }
+        .step-card p {
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+
+        /* تنسيق قسم لقطات الشاشة */
+        .screenshots-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .screenshot-placeholder {
+            background: rgba(255,255,255,0.05);
+            border: 2px dashed rgba(255,255,255,0.2);
+            border-radius: 16px;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-muted);
+            font-size: 1rem;
+            transition: border-color 0.3s;
+        }
+        .screenshot-placeholder:hover {
+            border-color: var(--secondary-color);
+        }
+
+        /* تنسيق قسم الأسئلة الشائعة */
+        .faq-list {
+            max-width: 800px;
+            margin: 3rem auto 0;
+            text-align: right;
+        }
+        .faq-item {
+            background: rgba(255,255,255,0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .faq-item:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        .faq-question {
+            font-weight: 700;
+            font-size: 1.2rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--text-muted);
+            line-height: 1.6;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+            padding-top: 1rem;
+        }
+
+        /* تنسيق قسم المطور */
+        .developer-card {
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            text-align: center;
+            max-width: 500px;
+            margin: 3rem auto 0;
+        }
+        .developer-card img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        .developer-card h3 {
+            font-size: 1.5rem;
+        }
+        .developer-card .social-links {
+            margin-top: 1.5rem;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        .social-links a {
+            display: inline-flex;
+            width: 45px;
+            height: 45px;
+            border-radius: 50%;
+            background: rgba(255,255,255,0.1);
+            color: #fff;
+            align-items: center;
+            justify-content: center;
+            transition: background 0.3s, transform 0.3s;
+        }
+        .social-links a:hover {
+            background: var(--secondary-color);
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- === ANIMATED BACKGROUND === -->
+    <div class="animated-bg"></div>
+
+    <!-- === NAVBAR === -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="logo">
+                <span class="logo-icon">
+                    <img src="images/nabhne.jpg" alt="لوجو نبهني" style="width: 50px; height: 50px; border-radius: 50%; object-fit: cover; border: 2px solid #ffffff; box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);">
+                </span>
+                <span class="logo-text">نبّهـ<span class="highlight">ـني</span></span>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="index.html" class="nav-link">العودة للرئيسية</a></li>
+                <li><a href="#features" class="nav-link">المميزات</a></li>
+                <li><a href="#how-it-works" class="nav-link">كيف يعمل</a></li>
+                <li><a href="#faq" class="nav-link">الأسئلة الشائعة</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- === APP HERO SECTION === -->
+    <header class="hero app-hero">
+        <div class="hero-wrapper" style="grid-template-columns: 1fr; text-align: center;">
+            <div class="hero-content">
+                
+                <!-- Voice Waves Animation -->
+                <div class="voice-waves">
+                    <span style="--i:1"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:5"></span>
+                    <span style="--i:4"></span>
+                    <span style="--i:3"></span>
+                    <span style="--i:2"></span>
+                    <span style="--i:1"></span>
+                </div>
+
+                <h1 class="main-title" style="font-size: 4rem; margin-top: 1rem;">
+                    مساعدك الشخصي <span style="color: var(--secondary-color);">الذكي</span>
+                </h1>
+                
+                <p class="hero-description" style="max-width: 700px; margin: 1.5rem auto;">
+                    ليس مجرد تطبيق تذكير تقليدي! "نبهني" يفهم لهجتك، يحلل أوامرك الصوتية، ويذكرك في الوقت والمكان المناسبين بدقة متناهية.
+                </p>
+
+                <!-- أزرار التحميل -->
+                <div class="cta-buttons" style="justify-content: center; margin-top: 2.5rem; gap: 1.5rem;">
+                    
+                    <!-- زر الأندرويد (نشط) -->
+                    <a href="حط_لينك_الاندرويد_هنا" target="_blank" class="btn btn-primary" style="background: linear-gradient(135deg, #2ecc71, #27ae60); border-color: #2ecc71; box-shadow: 0 0 30px rgba(46, 204, 113, 0.3);">
+                        <span class="btn-text">تحميل للأندرويد</span>
+                        <span class="btn-icon"><i class="fab fa-android"></i></span>
+                    </a>
+                    
+                    <!-- زر الآيفون (قريباً) -->
+                    <div class="btn btn-secondary" style="cursor: not-allowed; opacity: 0.6; border-color: var(--text-muted); color: var(--text-muted);">
+                        <span class="btn-text">قريباً للآيفون</span>
+                        <span class="btn-icon"><i class="fab fa-apple"></i></span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- === FEATURES SECTION === -->
+    <section class="skills-section" id="features">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">مميزات استثنائية</h2>
+                <p class="section-subtitle">صُمم ليكون الأذكى والأسرع في تلبية احتياجاتك اليومية</p>
+            </div>
+
+            <div class="skills-grid">
+                <!-- Feature 1 -->
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: var(--secondary-color);"><i class="fas fa-microphone-alt"></i></div>
+                    <h3>يفهم لهجتك</h3>
+                    <p>مزود بقواميس موسعة للهجتين المصرية والإماراتية. قل "باجر" أو "بكرة"، "الدوام" أو "الشغل"، وسيفهمك فوراً.</p>
+                </div>
+
+                <!-- Feature 2 -->
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: var(--primary-color);"><i class="fas fa-map-marked-alt"></i></div>
+                    <h3>التذكير المكاني (Geofencing)</h3>
+                    <p>اربط تذكيراتك بالأماكن. "فكرني أكلم العميل لما أوصل الشغل".. التطبيق سيتتبع موقعك ويرسل الإشعار عند وصولك.</p>
+                </div>
+
+                <!-- Feature 3 -->
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: #2ecc71;"><i class="fas fa-brain"></i></div>
+                    <h3>تحليل ذكي للنصوص</h3>
+                    <p>يحول صوتك إلى نص، ويستخرج منه (وصف المهمة، الوقت الدقيق، أو المناسبة) ويقوم بجدولتها تلقائياً.</p>
+                </div>
+
+                <!-- Feature 4 -->
+                <div class="skill-card">
+                    <div class="skill-icon" style="color: #f1c40f;"><i class="fas fa-calendar-check"></i></div>
+                    <h3>إدارة المناسبات السنوية</h3>
+                    <p>أضف أعياد الميلاد وذكريات الزواج مرة واحدة، وسيقوم التطبيق بتكرار التذكير سنوياً بذكاء.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === HOW IT WORKS SECTION === -->
+    <section class="skills-section" id="how-it-works" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">كيف يعمل التطبيق؟</h2>
+                <p class="section-subtitle">ثلاث خطوات بسيطة لتحصل على تذكير مثالي</p>
+            </div>
+
+            <div class="steps-grid">
+                <div class="step-card">
+                    <div class="step-number">1</div>
+                    <h3>اضغط المايكروفون</h3>
+                    <p>افتح التطبيق واضغط على زر المايكروفون الكبير في المنتصف.</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">2</div>
+                    <h3>تحدث بطلبك</h3>
+                    <p>قل مثلاً: "فكرني بكرة الساعة 5 أشتري خبز" أو "لما أروح البيت ذكرني أتصل بأحمد".</p>
+                </div>
+                <div class="step-card">
+                    <div class="step-number">3</div>
+                    <h3>استمتع بالتذكير</h3>
+                    <p>التطبيق يحلل كلامك، يستخرج المهمة والوقت أو المكان، ويذكرك في اللحظة المناسبة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === SCREENSHOTS SECTION === -->
+    <section class="skills-section" id="screenshots">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">لقطات من التطبيق</h2>
+                <p class="section-subtitle">تصميم بسيط وأنيق يسهل عليك كل شيء</p>
+            </div>
+
+            <div class="screenshots-grid">
+    <div class="screenshot-item">
+        <img src="images/nabhne1.jpeg" alt="شاشة رئيسية" class="screenshot-image">
+    </div>
+    <div class="screenshot-item">
+        <img src="images/nabhne2.jpeg" alt="شاشة المهام" class="screenshot-image">
+    </div>
+    <div class="screenshot-item">
+        <img src="images/nabhne3.jpeg" alt="شاشة الأماكن" class="screenshot-image">
+    </div>
+</div>
+        </div>
+    </section>
+
+    <!-- === FAQ SECTION === -->
+    <section class="skills-section" id="faq" style="background: rgba(0,0,0,0.3);">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">الأسئلة الشائعة</h2>
+                <p class="section-subtitle">كل ما تريد معرفته عن التطبيق</p>
+            </div>
+
+            <div class="faq-list">
+                <div class="faq-item active">
+                    <div class="faq-question">
+                        هل التطبيق مجاني؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        نعم، التطبيق مجاني بالكامل لجميع المستخدمين في الفترة الحالية.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل يحتاج التطبيق إلى إنترنت؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        التعرف الصوتي قد يحتاج إلى اتصال بالإنترنت حسب إعدادات جهازك، لكن التذكيرات تعمل بدون إنترنت بعد جدولتها.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل يدعم التطبيق لهجات أخرى غير المصرية والإماراتية؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        حالياً يدعم اللهجتين المصرية والإماراتية، ونعمل على إضافة المزيد قريباً.
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <div class="faq-question">
+                        هل التذكير المكاني يعمل في الخلفية؟
+                        <i class="fas fa-chevron-down"></i>
+                    </div>
+                    <div class="faq-answer">
+                        نعم، بعد منح أذونات الموقع اللازمة، يعمل التذكير المكاني حتى عند إغلاق التطبيق.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === DEVELOPER SECTION === -->
+    <section class="skills-section" id="developer">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">المطور</h2>
+                <p class="section-subtitle">خلف هذا المشروع الرائع</p>
+            </div>
+
+            <div class="developer-card">
+                <img src="images/mahmoud.jpg" alt="محمود حسين" onerror="this.style.display='none'">
+                <h3>محمود حسين</h3>
+                <p style="color: var(--text-muted);">مبرمج ومطور تطبيقات Android، متحمس لصناعة تجارب ذكية باللغة العربية.</p>
+                <div class="social-links">
+                    <a href="https://github.com/" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com/" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+                    <a href="https://wa.me/" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- === FOOTER === -->
+    <footer class="footer" style="margin-top: 0;">
+        <div class="container">
+            <div class="footer-bottom" style="border-top: none; padding-top: 0;">
+                <p>&copy; 2026 محمود حسين. جميع الحقوق محفوظة.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // تفعيل الأسئلة الشائعة (Accordion)
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                item.classList.toggle('active');
+            });
+        });
+    </script>
+</body>
+</html>
