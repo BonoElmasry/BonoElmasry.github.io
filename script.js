@@ -35,18 +35,6 @@ navLinks.forEach(link => {
 });
 
 // ============================
-// Form Submission
-// ============================
-const form = document.querySelector('.form');
-if (form) {
-    form.addEventListener('submit', function(e) {
-        e.preventDefault();
-        alert('شكراً لتواصلك معنا! سنرد عليك قريباً.');
-        form.reset();
-    });
-}
-
-// ============================
 // Active Section on Scroll (throttled)
 // ============================
 let ticking = false;
