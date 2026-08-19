@@ -571,23 +571,5 @@
     <!-- Scripts -->
     <script src="script.js"></script>
     
-    <!-- سكريبت إضافي لحل تعارض نموذج التواصل مع script.js القديم -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            var oldForm = document.querySelector('.form');
-            // لو النموذج موجود وله action بتاع formsubmit
-            if (oldForm && oldForm.action && oldForm.action.includes('formsubmit.co')) {
-                // بنستنسخ النموذج عشان نشيل أي event listeners قديمة (زي الـ preventDefault بتاع script.js)
-                var newForm = oldForm.cloneNode(true);
-                oldForm.parentNode.replaceChild(newForm, oldForm);
-                
-                // إضافة مستمع جديد للإرسال الفعلي (بس كتأكيد إضافي)
-                newForm.addEventListener('submit', function(e) {
-                    // نسمح بالإرسال الطبيعي، مش هنعمل preventDefault
-                    console.log('جاري إرسال الرسالة إلى البريد الإلكتروني...');
-                });
-            }
-        });
-    </script>
 </body>
 </html>
