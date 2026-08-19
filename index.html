@@ -5,17 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>محمود حسين | مونتير & مطور | الإمارات</title>
 
-        <!-- SEO Meta Tags -->
+    <!-- SEO Meta Tags -->
     <meta name="description" content="الموقع الرسمي للمهندس محمود حسين (بونو المصري)، مطور تطبيقات أندرويد ومونتير سينمائي. استكشف أحدث مشاريعي مثل زاد بونو، نبهني، شيلد، والخلية.">
     <meta name="keywords" content="تطبيقات بونو المصري, بونو المصري, Bono, Bono Elmasry, BonoApp, مشاريع بونو المصري, محمود حسين, المهندس محمود حسين, مشاريع المهندس محمود حسين, مشاريع محمود بونو, مطور أندرويد, مونتير سينمائي">
     <meta name="author" content="Mahmoud Hussein (Bono Elmasry)">
     
-    <!-- Open Graph / Facebook / WhatsApp -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://bonoelmasry.github.io/">
     <meta property="og:title" content="محمود حسين | مونتير & مطور | BonoApp">
     <meta property="og:description" content="الموقع الرسمي للمهندس محمود حسين. استكشف أحدث تطبيقات الأندرويد وبرامج سطح المكتب.">
-    <meta property="og:image" content="https://bonoelmasry.github.io/images/hive.png"> <!-- ممكن تغير الصورة دي لأي لوجو يعجبك -->
+    <meta property="og:image" content="https://bonoelmasry.github.io/images/hive.png">
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
@@ -23,21 +23,240 @@
     <meta property="twitter:title" content="محمود حسين | مونتير & مطور | BonoApp">
     <meta property="twitter:description" content="الموقع الرسمي للمهندس محمود حسين. استكشف أحدث تطبيقات الأندرويد وبرامج سطح المكتب.">
 
-    
-    <!-- خطوط جوجل -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     
-    <!-- Font Awesome للأيقونات -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
-    <!-- ملف التصميم -->
+    <!-- ملف التصميم الأساسي -->
     <link rel="stylesheet" href="style.css">
+
+    <style>
+        /* =============================================
+           التعديلات الجديدة للمربعين (Hero Visuals)
+           ============================================= */
+        .hero-visuals {
+            display: flex;
+            gap: 2.5rem;
+            justify-content: center;
+            align-items: center;
+            flex-wrap: wrap;
+            animation: slideInRight 0.8s ease-out;
+        }
+
+        .hero-visuals .cinema-frame {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: var(--transition-normal);
+        }
+
+        .hero-visuals .frame-accent {
+            background: linear-gradient(135deg, var(--accent-color, var(--primary-color)), transparent);
+        }
+
+        .hero-visuals .cinema-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 3.5rem;
+            transition: var(--transition-normal);
+        }
+
+        .hero-visuals .cinema-content i {
+            font-size: 3.5rem;
+            color: var(--text-light);
+            transition: var(--transition-normal);
+        }
+
+        .hero-visuals .cinema-frame:hover .cinema-content i {
+            transform: scale(1.1) rotate(-5deg);
+            color: var(--accent-color, var(--primary-color));
+        }
+
+        .frame-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 0.25rem 1rem;
+            border-radius: var(--radius-full);
+            border: 1px solid var(--border-color);
+            transition: var(--transition-normal);
+        }
+
+        .hero-visuals .cinema-frame:hover .frame-label {
+            color: var(--text-light);
+            border-color: var(--accent-color, var(--primary-color));
+            box-shadow: 0 0 20px rgba(0, 212, 255, 0.2);
+        }
+
+        /* =============================================
+           CODE EDITOR (VS Code Style)
+           ============================================= */
+        .code-editor-frame .cinema-content {
+            background: #1e1e1e;
+            border-radius: 12px;
+            padding: 0;
+            overflow: hidden;
+            width: 100%;
+            height: 100%;
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .editor-tabs {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 12px;
+            background: #252526;
+            border-bottom: 1px solid #3c3c3c;
+            flex-shrink: 0;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        .dot-red { background: #ff5f56; }
+        .dot-yellow { background: #ffbd2e; }
+        .dot-green { background: #27c93f; }
+
+        .editor-filename {
+            color: #858585;
+            font-size: 0.5rem;
+            font-family: 'Courier New', monospace;
+            margin-right: auto;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .editor-body {
+            flex: 1;
+            padding: 6px 10px;
+            font-family: 'Courier New', monospace;
+            font-size: 0.5rem;
+            line-height: 1.6;
+            color: #d4d4d4;
+            background: #1e1e1e;
+            overflow: hidden;
+            min-height: 0;
+            display: flex;
+            align-items: flex-start;
+            justify-content: flex-start;
+            direction: ltr;
+            text-align: left;
+        }
+
+        .code-keyword { color: #c586c0; }
+        .code-function { color: #dcdcaa; }
+        .code-string { color: #ce9178; }
+        .code-comment { color: #6a9955; }
+        .code-variable { color: #9cdcfe; }
+        .code-number { color: #b5cea8; }
+
+        .code-editor .frame-label {
+            position: absolute;
+            bottom: 6px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.7);
+            backdrop-filter: blur(10px);
+            font-size: 0.5rem;
+            padding: 2px 12px;
+            border-radius: 20px;
+            border: 1px solid rgba(255,255,255,0.1);
+            color: #aaa;
+            white-space: nowrap;
+            font-family: 'Cairo', sans-serif;
+        }
+
+        .code-editor-frame:hover .code-editor {
+            border-color: var(--accent-color);
+            box-shadow: 0 0 30px rgba(0, 212, 255, 0.2);
+        }
+
+        /* =============================================
+           RESPONSIVE للمربعين
+           ============================================= */
+        @media (max-width: 768px) {
+            .hero-visuals {
+                gap: 1.5rem;
+            }
+            .hero-visuals .cinema-frame {
+                width: 150px;
+                height: 150px;
+            }
+            .hero-visuals .cinema-content i {
+                font-size: 2.5rem;
+            }
+            .frame-label {
+                font-size: 0.6rem;
+                padding: 0.15rem 0.75rem;
+            }
+            .editor-body {
+                font-size: 0.4rem;
+                padding: 4px 8px;
+            }
+            .editor-filename {
+                font-size: 0.4rem;
+            }
+            .dot {
+                width: 10px;
+                height: 10px;
+            }
+            .code-editor .frame-label {
+                font-size: 0.45rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-visuals {
+                flex-direction: row;
+                gap: 1rem;
+            }
+            .hero-visuals .cinema-frame {
+                width: 120px;
+                height: 120px;
+            }
+            .hero-visuals .cinema-content i {
+                font-size: 2rem;
+            }
+            .frame-label {
+                font-size: 0.5rem;
+                padding: 0.1rem 0.5rem;
+            }
+            .editor-body {
+                font-size: 0.35rem;
+                padding: 3px 6px;
+            }
+            .editor-filename {
+                font-size: 0.35rem;
+            }
+            .code-editor .frame-label {
+                font-size: 0.4rem;
+                padding: 1px 6px;
+            }
+        }
+    </style>
 </head>
 <body>
 
-    <!-- === ANIMATED BACKGROUND === -->
+    <!-- ANIMATED BACKGROUND -->
     <div class="animated-bg"></div>
     <div class="floating-orbs">
         <div class="orb orb-1"></div>
@@ -45,7 +264,7 @@
         <div class="orb orb-3"></div>
     </div>
 
-    <!-- === NAVBAR === -->
+    <!-- ===== NAVBAR ===== -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="logo">
@@ -67,7 +286,7 @@
         </div>
     </nav>
 
-    <!-- === HERO SECTION === -->
+    <!-- ===== HERO SECTION ===== -->
     <header class="hero" id="home">
         <div class="hero-wrapper">
             <div class="hero-content">
@@ -79,7 +298,7 @@
                     </h1>
                 </div>
 
-                <!-- Subtitle with Animation -->
+                <!-- Subtitle -->
                 <div class="subtitle-container">
                     <h2 class="subtitle">
                         <span class="role-badge">🎥 مونتير سينمائي</span>
@@ -88,15 +307,8 @@
                     </h2>
                 </div>
 
-                <!-- Description -->
-                <p class="hero-description">
-                    أحول الأفكار الإبداعية إلى تجارب رقمية مذهلة
-                </p>
-
-                <!-- Tagline -->
-                <p class="hero-tagline">
-                    "الفن والتكنولوجيا يلتقيان هنا"
-                </p>
+                <p class="hero-description">أحول الأفكار الإبداعية إلى تجارب رقمية مذهلة</p>
+                <p class="hero-tagline">"الفن والتكنولوجيا يلتقيان هنا"</p>
 
                 <!-- CTA Buttons -->
                 <div class="cta-buttons">
@@ -127,15 +339,40 @@
                 </div>
             </div>
 
-            <!-- Hero Visual -->
-            <div class="hero-visual">
-                <div class="cinema-frame">
+            <!-- ===== HERO VISUALS (المربعين الجدد) ===== -->
+            <div class="hero-visuals">
+                <!-- الإطار الأول: المونتاج السينمائي -->
+                <div class="cinema-frame" style="--accent-color: var(--secondary-color); --border-color: var(--secondary-color);">
                     <div class="frame-accent frame-top"></div>
                     <div class="frame-accent frame-right"></div>
                     <div class="frame-accent frame-bottom"></div>
                     <div class="frame-accent frame-left"></div>
                     <div class="cinema-content">
                         <i class="fas fa-film"></i>
+                        <span class="frame-label">مونتاج سينمائي</span>
+                    </div>
+                </div>
+
+                <!-- الإطار الثاني: البرمجة والتطوير (بواجهة VS Code) -->
+                <div class="cinema-frame code-editor-frame" style="--accent-color: var(--primary-color); --border-color: var(--primary-color);">
+                    <div class="frame-accent frame-top"></div>
+                    <div class="frame-accent frame-right"></div>
+                    <div class="frame-accent frame-bottom"></div>
+                    <div class="frame-accent frame-left"></div>
+                    
+                    <div class="cinema-content code-editor">
+                        <!-- شريط عنوان VS Code -->
+                        <div class="editor-tabs">
+                            <span class="dot dot-red"></span>
+                            <span class="dot dot-yellow"></span>
+                            <span class="dot dot-green"></span>
+                            <span class="editor-filename">main.js</span>
+                        </div>
+                        
+                        <!-- منطقة الكود -->
+                        <div class="editor-body" id="codeDisplay"></div>
+                        
+                        <span class="frame-label">تطوير برمجي</span>
                     </div>
                 </div>
             </div>
@@ -150,7 +387,7 @@
         </div>
     </header>
 
-    <!-- === APPS SECTION (موبايل) === -->
+    <!-- ===== APPS SECTION (موبايل) ===== -->
     <section class="apps-section" id="apps">
         <div class="container">
             <div class="section-header">
@@ -159,12 +396,10 @@
             </div>
 
             <div class="apps-grid">
-                
                 <!-- App Card 1: Zad Bono -->
                 <div class="app-card" data-app="zad-bono">
                     <div class="card-background"></div>
                     <div class="card-glow"></div>
-                    
                     <div class="card-header">
                         <div class="app-icon">
                             <img src="images/zadbono.jpg" alt="زاد بونو" style="width: 65px; height: 65px; border-radius: 50%; object-fit: cover; display: block;">
@@ -173,18 +408,15 @@
                             <span class="badge badge-active">نشط</span>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <h3 class="app-name">زاد بونو</h3>
                         <p class="app-description">تطبيق عبادات إسلامية شاملة بتجربة مستخدم مريحة وتصميم حديث.</p>
-                        
                         <div class="app-features">
                             <span class="feature-tag">📿 عبادات</span>
                             <span class="feature-tag">🎨 UI/UX</span>
                             <span class="feature-tag">⚡ سريع</span>
                         </div>
                     </div>
-
                     <div class="card-footer">
                         <a href="zad-bono.html" target="_blank" class="card-btn">
                             <span>استكشف التطبيق</span>
@@ -197,25 +429,21 @@
                 <div class="app-card" data-app="nabbehny">
                     <div class="card-background"></div>
                     <div class="card-glow"></div>
-                    
                     <div class="card-header">
                         <div class="app-icon" style="background-image: url('images/nabhne.jpg'); background-size: cover; background-position: center; width: 65px; height: 65px; border-radius: 50%;"></div>
                         <div class="app-badges">
                             <span class="badge badge-active">نشط</span>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <h3 class="app-name">نبهني</h3>
                         <p class="app-description">تطبيق تنبيهات ذكي يساعدك على البقاء منظماً وإنتاجياً كل يوم.</p>
-                        
                         <div class="app-features">
                             <span class="feature-tag">⏰ تذكيرات</span>
                             <span class="feature-tag">🤖 ذكي</span>
                             <span class="feature-tag">📱 سلس</span>
                         </div>
                     </div>
-
                     <div class="card-footer">
                         <a href="nabbehny.html" target="_blank" class="card-btn">
                             <span>استكشف التطبيق</span>
@@ -228,25 +456,21 @@
                 <div class="app-card" data-app="shield">
                     <div class="card-background"></div>
                     <div class="card-glow"></div>
-                    
                     <div class="card-header">
                         <div class="app-icon" style="background-image: url('images/sheld.png'); background-size: cover; background-position: center; width: 65px; height: 65px; border-radius: 50%;"></div>
                         <div class="app-badges">
                             <span class="badge badge-active">نشط</span>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <h3 class="app-name">شيلد</h3>
                         <p class="app-description">تطبيق أمان وحماية متقدم لحماية خصوصيتك وبياناتك الشخصية.</p>
-                        
                         <div class="app-features">
                             <span class="feature-tag">🔐 أمان</span>
                             <span class="feature-tag">🛡️ حماية</span>
                             <span class="feature-tag">🔒 خصوصية</span>
                         </div>
                     </div>
-
                     <div class="card-footer">
                         <a href="shield.html" target="_blank" class="card-btn">
                             <span>استكشف التطبيق</span>
@@ -259,25 +483,21 @@
                 <div class="app-card" data-app="the-hive">
                     <div class="card-background"></div>
                     <div class="card-glow"></div>
-                    
                     <div class="card-header">
                         <div class="app-icon" style="background-image: url('images/hive.png'); background-size: cover; background-position: center; width: 65px; height: 65px; border-radius: 50%;"></div>
                         <div class="app-badges">
                             <span class="badge badge-active">نشط</span>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <h3 class="app-name">The Hive</h3>
                         <p class="app-description">شبكة تواصل لامركزية للطوارئ تعمل بدون إنترنت لربط الأجهزة ببعضها.</p>
-                        
                         <div class="app-features">
                             <span class="feature-tag">📡 بدون إنترنت</span>
                             <span class="feature-tag">🔗 لامركزية</span>
                             <span class="feature-tag">🛡️ طوارئ</span>
                         </div>
                     </div>
-
                     <div class="card-footer">
                         <a href="the-hive.html" target="_blank" class="card-btn">
                             <span>استكشف التطبيق</span>
@@ -285,12 +505,11 @@
                         </a>
                     </div>
                 </div>
-
             </div>
         </div>
     </section>
 
-    <!-- ===== DESKTOP APPS SECTION - تطبيقات سطح المكتب (جديد) ===== -->
+    <!-- ===== DESKTOP APPS SECTION ===== -->
     <section class="apps-section" id="desktop" style="background: rgba(255, 255, 255, 0.02); border-top: 1px solid rgba(255,255,255,0.05);">
         <div class="container">
             <div class="section-header">
@@ -299,12 +518,10 @@
             </div>
 
             <div class="apps-grid">
-                
                 <!-- Desktop App Card 1: المحاسب الذكي -->
                 <div class="app-card" data-app="accountant">
                     <div class="card-background"></div>
                     <div class="card-glow"></div>
-                    
                     <div class="card-header">
                         <div class="app-icon" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); width: 65px; height: 65px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);">
                             <i class="fas fa-robot"></i>
@@ -313,18 +530,15 @@
                             <span class="badge badge-active" style="background: rgba(76, 175, 80, 0.2); color: #4CAF50; border-color: #4CAF50;">💻 ويندوز</span>
                         </div>
                     </div>
-
                     <div class="card-body">
                         <h3 class="app-name">المحاسب الذكي</h3>
                         <p class="app-description">أول نظام إدارة للوكالات بذكاء اصطناعي صوتي. يدير النقلات والمبيعات والخزنة، ويفهم لهجة السوق المصرية، ويشتغل من غير نت.</p>
-                        
                         <div class="app-features">
                             <span class="feature-tag" style="color: #4CAF50; border-color: rgba(76, 175, 80, 0.3);">🎙️ ذكاء صوتي</span>
                             <span class="feature-tag" style="color: #4CAF50; border-color: rgba(76, 175, 80, 0.3);">📦 نقلات ومبيعات</span>
                             <span class="feature-tag" style="color: #4CAF50; border-color: rgba(76, 175, 80, 0.3);">🔒 بدون إنترنت</span>
                         </div>
                     </div>
-
                     <div class="card-footer">
                         <a href="accountant.html" target="_blank" class="card-btn" style="background: linear-gradient(135deg, #4CAF50, #2E7D32); box-shadow: 0 0 30px rgba(76, 175, 80, 0.3);">
                             <span>استكشف البرنامج</span>
@@ -334,43 +548,38 @@
                 </div>
 
                 <!-- Desktop App Card 2: إشارة -->
-<div class="app-card" data-app="eshra">
-    <div class="card-background"></div>
-    <div class="card-glow"></div>
-    
-    <div class="card-header">
-        <div class="app-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); width: 65px; height: 65px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);">
-            <i class="fas fa-hands"></i>
-        </div>
-        <div class="app-badges">
-            <span class="badge badge-active" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B; border-color: #F59E0B;">💻 ويندوز</span>
-        </div>
-    </div>
-
-    <div class="card-body">
-        <h3 class="app-name">إشارة</h3>
-        <p class="app-description">أول حل وطني يعمل دون إنترنت لتحويل أي فيديو إلى لغة الإشارة الإماراتية بضغطة زر، باستخدام نماذج ذكاء اصطناعي متطورة تعمل محلياً.</p>
-        
-        <div class="app-features">
-            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🤖 ذكاء اصطناعي</span>
-            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🔒 بدون إنترنت</span>
-            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🇦🇪 لغة إماراتية</span>
-        </div>
-    </div>
-
-    <div class="card-footer">
-        <a href="eshra-ai.html" target="_blank" class="card-btn" style="background: linear-gradient(135deg, #F59E0B, #D97706); box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);">
-            <span>استكشف البرنامج</span>
-            <i class="fas fa-arrow-left"></i>
-        </a>
-    </div>
-</div>
-
+                <div class="app-card" data-app="eshra">
+                    <div class="card-background"></div>
+                    <div class="card-glow"></div>
+                    <div class="card-header">
+                        <div class="app-icon" style="background: linear-gradient(135deg, #F59E0B, #D97706); width: 65px; height: 65px; border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 2rem; color: #fff; box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);">
+                            <i class="fas fa-hands"></i>
+                        </div>
+                        <div class="app-badges">
+                            <span class="badge badge-active" style="background: rgba(245, 158, 11, 0.2); color: #F59E0B; border-color: #F59E0B;">💻 ويندوز</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <h3 class="app-name">إشارة</h3>
+                        <p class="app-description">أول حل وطني يعمل دون إنترنت لتحويل أي فيديو إلى لغة الإشارة الإماراتية بضغطة زر، باستخدام نماذج ذكاء اصطناعي متطورة تعمل محلياً.</p>
+                        <div class="app-features">
+                            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🤖 ذكاء اصطناعي</span>
+                            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🔒 بدون إنترنت</span>
+                            <span class="feature-tag" style="color: #F59E0B; border-color: rgba(245, 158, 11, 0.3);">🇦🇪 لغة إماراتية</span>
+                        </div>
+                    </div>
+                    <div class="card-footer">
+                        <a href="eshra-ai.html" target="_blank" class="card-btn" style="background: linear-gradient(135deg, #F59E0B, #D97706); box-shadow: 0 0 30px rgba(245, 158, 11, 0.3);">
+                            <span>استكشف البرنامج</span>
+                            <i class="fas fa-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- === SKILLS SECTION === -->
+    <!-- ===== SKILLS SECTION ===== -->
     <section class="skills-section" id="skills">
         <div class="container">
             <div class="section-header">
@@ -379,7 +588,6 @@
             </div>
 
             <div class="skills-grid">
-                <!-- Skill Card 1 -->
                 <div class="skill-card">
                     <div class="skill-icon">🎬</div>
                     <h3>المونتاج السينمائي</h3>
@@ -388,8 +596,6 @@
                         <div class="progress-bar" style="width: 95%"></div>
                     </div>
                 </div>
-
-                <!-- Skill Card 2 -->
                 <div class="skill-card">
                     <div class="skill-icon">💻</div>
                     <h3>تطوير الأندرويد</h3>
@@ -398,8 +604,6 @@
                         <div class="progress-bar" style="width: 90%"></div>
                     </div>
                 </div>
-
-                <!-- Skill Card 3 -->
                 <div class="skill-card">
                     <div class="skill-icon">🎨</div>
                     <h3>تصميم الواجهات</h3>
@@ -408,8 +612,6 @@
                         <div class="progress-bar" style="width: 92%"></div>
                     </div>
                 </div>
-
-                <!-- Skill Card 4 -->
                 <div class="skill-card">
                     <div class="skill-icon">⚡</div>
                     <h3>الأداء والتحسين</h3>
@@ -418,8 +620,6 @@
                         <div class="progress-bar" style="width: 88%"></div>
                     </div>
                 </div>
-
-                <!-- Skill Card 5 -->
                 <div class="skill-card">
                     <div class="skill-icon">🎥</div>
                     <h3>الإنتاج والمحتوى</h3>
@@ -428,8 +628,6 @@
                         <div class="progress-bar" style="width: 94%"></div>
                     </div>
                 </div>
-
-                <!-- Skill Card 6 -->
                 <div class="skill-card">
                     <div class="skill-icon">🚀</div>
                     <h3>الابتكار والإبداع</h3>
@@ -442,7 +640,7 @@
         </div>
     </section>
 
-    <!-- === CONTACT SECTION (نموذج التواصل الحقيقي) === -->
+    <!-- ===== CONTACT SECTION ===== -->
     <section class="contact-section" id="contact">
         <div class="container">
             <div class="section-header">
@@ -452,21 +650,16 @@
 
             <div class="contact-content">
                 <div class="contact-info">
-                    <!-- بطاقة البريد الإلكتروني -->
                     <div class="contact-card">
                         <div class="contact-icon"><img src="images/email.png" alt="البريد الإلكتروني"></div>
                         <h3>البريد الإلكتروني</h3>
                         <a href="mailto:bonoelmasry2014@gmail.com">bonoelmasry2014@gmail.com</a>
                     </div>
-
-                    <!-- بطاقة واتساب مصر -->
                     <div class="contact-card">
                         <div class="contact-icon"><img src="images/whatsapp.png" alt="واتساب مصر"></div>
                         <h3>واتساب مصر</h3>
                         <a href="https://wa.me/201020251207" target="_blank">+20 102 025 1207</a>
                     </div>
-
-                    <!-- بطاقة الهاتف الإماراتي -->
                     <div class="contact-card">
                         <div class="contact-icon"><img src="images/phone.png" alt="هاتف الإمارات"></div>
                         <h3>الإمارات</h3>
@@ -475,29 +668,21 @@
                             <i class="fab fa-whatsapp"></i> واتساب
                         </a>
                     </div>
-
-                    <!-- بطاقة فيسبوك -->
                     <div class="contact-card">
                         <div class="contact-icon"><img src="images/facebook.png" alt="فيسبوك"></div>
                         <h3>فيسبوك</h3>
                         <a href="https://facebook.com/bonoelmasry" target="_blank">Mahmoud Hussein</a>
                     </div>
-
-                    <!-- بطاقة لينكدإن -->
                     <div class="contact-card">
                         <div class="contact-icon"><img src="images/linkedin.png" alt="لينكدإن"></div>
                         <h3>لينكدإن</h3>
                         <a href="https://www.linkedin.com/in/mahmoud-khalil-editor?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank">Mahmoud Khalil</a>
                     </div>
-
-                    <!-- بطاقة يوتيوب -->
                     <div class="contact-card">
                         <div class="contact-icon"><img src="images/youtube.png" alt="يوتيوب"></div>
                         <h3>قناة اليوتيوب</h3>
                         <a href="https://www.youtube.com/@Bono_Elmasry" target="_blank">Bono_Elmasry</a>
                     </div>
-
-                    <!-- بطاقة الموقع -->
                     <div class="contact-card">
                         <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
                         <h3>الموقع</h3>
@@ -506,13 +691,9 @@
                 </div>
 
                 <div class="contact-form">
-                    <!-- تم التعديل هنا: إضافة action و method وإلغاء التعارض مع script.js -->
                     <form class="form" id="real-contact-form" action="https://formsubmit.co/bonoelmasry2014@gmail.com" method="POST">
-                        <!-- حماية من السبام -->
                         <input type="hidden" name="_captcha" value="false">
-                        <!-- عنوان الرسالة -->
                         <input type="hidden" name="_subject" value="رسالة جديدة من موقع محمود حسين">
-                        <!-- إعادة توجيه بعد الإرسال (اختياري) -->
                         <input type="hidden" name="_next" value="https://bonoelmasry.github.io/thank-you.html">
                         
                         <div class="form-group">
@@ -534,7 +715,7 @@
         </div>
     </section>
 
-    <!-- === FOOTER === -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-content">
@@ -568,8 +749,92 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- ===== SCRIPT.JS (الأساسي) ===== -->
     <script src="script.js"></script>
-    
+
+    <!-- ===== سكريبت إصلاح الفورم (يحل التعارض) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            var oldForm = document.querySelector('#real-contact-form');
+            if (oldForm) {
+                var newForm = oldForm.cloneNode(true);
+                oldForm.parentNode.replaceChild(newForm, oldForm);
+                
+                newForm.addEventListener('submit', function(e) {
+                    console.log('✅ جاري إرسال الرسالة إلى البريد الإلكتروني...');
+                });
+            }
+        });
+    </script>
+
+    <!-- ===== سكريبت تأثير VS Code (الكتابة التلقائية) ===== -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const codeDisplay = document.getElementById('codeDisplay');
+            if (!codeDisplay) return;
+
+            const codeLines = [
+                { text: 'function initApp() {', type: 'keyword' },
+                { text: '  const user = "Bono";', type: 'variable' },
+                { text: '  console.log(user);', type: 'function' },
+                { text: '  // مرحباً بك في الكود', type: 'comment' },
+                { text: '} // end init', type: 'comment' }
+            ];
+
+            let lineIndex = 0, charIndex = 0, isDeleting = false;
+
+            function getLineHTML(line) {
+                const cls = line.type ? 'code-' + line.type : '';
+                return `<span class="${cls}">${line.text}</span>`;
+            }
+
+            function typeEffect() {
+                if (lineIndex >= codeLines.length) {
+                    if (!isDeleting) {
+                        isDeleting = true;
+                        setTimeout(typeEffect, 1500);
+                        return;
+                    }
+                    if (lineIndex > 0) {
+                        lineIndex--;
+                        charIndex = codeLines[lineIndex].text.length;
+                        if (charIndex > 0) {
+                            charIndex--;
+                            let html = '';
+                            for (let i = 0; i < lineIndex; i++) html += getLineHTML(codeLines[i]) + '<br>';
+                            if (charIndex > 0) {
+                                const partial = codeLines[lineIndex].text.substring(0, charIndex);
+                                html += `<span class="code-${codeLines[lineIndex].type}">${partial}</span>`;
+                            }
+                            codeDisplay.innerHTML = html;
+                            setTimeout(typeEffect, 30);
+                        } else {
+                            if (lineIndex > 0) { lineIndex--; charIndex = codeLines[lineIndex].text.length; setTimeout(typeEffect, 30); }
+                            else { isDeleting = false; lineIndex = 0; charIndex = 0; codeDisplay.innerHTML = ''; setTimeout(typeEffect, 500); }
+                        }
+                    } else {
+                        isDeleting = false; lineIndex = 0; charIndex = 0; codeDisplay.innerHTML = ''; setTimeout(typeEffect, 500);
+                    }
+                    return;
+                }
+
+                const line = codeLines[lineIndex];
+                if (charIndex <= line.text.length) {
+                    let html = '';
+                    for (let i = 0; i < lineIndex; i++) html += getLineHTML(codeLines[i]) + '<br>';
+                    const partial = line.text.substring(0, charIndex);
+                    html += `<span class="code-${line.type}">${partial}</span>`;
+                    codeDisplay.innerHTML = html;
+                    charIndex++;
+                    setTimeout(typeEffect, 50);
+                } else {
+                    lineIndex++;
+                    charIndex = 0;
+                    setTimeout(typeEffect, 200);
+                }
+            }
+            setTimeout(typeEffect, 800);
+        });
+    </script>
 </body>
 </html>
